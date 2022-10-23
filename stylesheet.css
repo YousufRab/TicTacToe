@@ -1,0 +1,10 @@
+.board {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.board > div {
+    border: 1px solid black;
+    display: block;
+}
