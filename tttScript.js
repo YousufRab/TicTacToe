@@ -1,0 +1,4 @@
+const gameBoard = function () {
+    board = [];
+
+};
