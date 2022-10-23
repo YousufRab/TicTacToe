@@ -1,8 +1,19 @@
-const gameBoard = function () {
-    board = [];
+const gameBoard = (function () {
+    board = ["X", "O", "X", "O", "X", "O", "X", "O", "X", "O"];
+    const sqrClicked = () => {
+        let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
 
-};
+    }
+    return {board};
+})();
 
-const player = (playerNum, name, score) => {
-    
+
+
+// Player object (factory function)
+const player = (playerSign, name, turn) => {
+
+}
+
+function renderBoard(board = gameBoard.board) {
+
 }
