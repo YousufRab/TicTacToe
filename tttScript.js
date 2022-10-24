@@ -18,17 +18,44 @@ const gameBoard = (function () {
 
 gameBoard.sqrClicked();
 
-const gamePlay = function () {
+
+// Gameplay module for controlling various aspects of the game
+const gamePlay = (function () {
     const clearBoard = () => { 
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
         boardSquares.forEach(square => {
             square.innerHTML = "";
-        })
+        });
     }
-    const playerSignSelect = () => {
 
+    const newGame = () => {
+        clearBoard();
+        playerSignSelect();
+        playerNameSelect();
     }
-}
+
+    const playerSignSelect = () => {
+        const signSelector = document.querySelector('.signSelect');
+        const signX = document.getElementById('X');
+        const signO = document.getElementById('O');
+
+        if (signSelector.classList.contains("signSelect-active")) {
+            //hide
+            signSelector.classList.remove("signSelect-active");
+            signSelector.classList.add("signSelect-transition");
+            signSelector.classList.add('signSelect-hidden');
+        } else {
+            //show
+            signSelector.classList.add('signSelect-visible');
+            signSelector.clientWidth;
+            signSelector.classList.add('signSelect-transition');
+            signSelector.classList.add('signSelect-active');
+        }
+    }
+
+    return {playerSignSelect};
+
+})();
 
 // Player object (factory function)
 const player = (playerSign, name) => {
