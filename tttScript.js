@@ -5,14 +5,17 @@ const gameBoard = (function () {
         let arraySign = 0;
         boardSquares.forEach(square => {
             square.addEventListener('click', () =>{
-                square.innerHTML = board[arraySign];
-                arraySign += 1;
+                if (square.innerHTML == "") {
+                    square.innerHTML = board[arraySign];
+                    arraySign += 1;
+                }    
             })
         })
     }
-    return {board, sqrClicked};
+    return {sqrClicked};
 })();
 
+gameBoard.sqrClicked();
 
 
 // Player object (factory function)
