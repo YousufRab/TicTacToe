@@ -11,4 +11,28 @@
 
 .signSelect {
     display: none;
+    opacity: 0;
+}
+
+.signSelect-visible {
+    display: block;
+}
+
+.signSelect-active {
+    display: block;
+    opacity: 1;
+}
+
+.signSelect-transition.signSelect-visible {
+    display: block;
+    opacity: 1;
+}
+
+.signSelect-transition {
+    transition: opacity 1s ease;
+}
+
+.signSelect-hidden {
+    display: block;
+    opacity: 0;
 }
