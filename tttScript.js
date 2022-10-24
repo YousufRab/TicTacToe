@@ -2,14 +2,15 @@ const gameBoard = (function () {
     board = ["X", "O", "X", "O", "X", "O", "X", "O", "X", "O"];
     const sqrClicked = () => {
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
-        boardSquares.forEach(drawSign)
-    };
-
-    const drawSign = (boardSquare) => {
         let arraySign = 0;
-        boardSquare
+        boardSquares.forEach(square => {
+            square.addEventListener('click', () =>{
+                square.innerHTML = board[arraySign];
+                arraySign += 1;
+            })
+        })
     }
-    return {board};
+    return {board, sqrClicked};
 })();
 
 
