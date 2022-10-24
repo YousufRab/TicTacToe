@@ -19,7 +19,12 @@ const gameBoard = (function () {
 gameBoard.sqrClicked();
 
 const gamePlay = function () {
-    
+    const clearBoard = () => { 
+        let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
+        boardSquares.forEach(square => {
+            square.innerHTML = "";
+        })
+    }
     const playerSignSelect = () => {
 
     }
