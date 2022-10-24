@@ -12,17 +12,21 @@ const gameBoard = (function () {
             })
         })
     }
-    return {sqrClicked};
+
+    return {board, sqrClicked};
 })();
 
 gameBoard.sqrClicked();
 
+const gamePlay = function () {
+    
+    const playerSignSelect = () => {
 
-// Player object (factory function)
-const player = (playerSign, name, turn) => {
-
+    }
 }
 
-function renderBoard(board = gameBoard.board) {
+// Player object (factory function)
+const player = (playerSign, name) => {
+
 
 }
