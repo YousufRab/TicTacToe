@@ -21,6 +21,13 @@ gameBoard.sqrClicked();
 
 // Gameplay module for controlling various aspects of the game
 const gamePlay = (function () {
+    
+    const newGame = () => {
+        clearBoard();
+        playerSignSelect();
+        playerNameSelect();
+    }
+
     const clearBoard = () => { 
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
         boardSquares.forEach(square => {
@@ -28,11 +35,6 @@ const gamePlay = (function () {
         });
     }
 
-    const newGame = () => {
-        clearBoard();
-        playerSignSelect();
-        playerNameSelect();
-    }
     const playerNameSelect = () => {
         let playerOneName = prompt("What is your name?");
         console.log(playerOneName);
@@ -75,6 +77,8 @@ const gamePlay = (function () {
 
         signO.addEventListener('click', ()=> {
             player1Sign = "O";
+            player2Sign = "X";
+            hideSelector();
         })         
     }
 
