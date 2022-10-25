@@ -41,7 +41,7 @@ const gamePlay = (function () {
         let player1Sign = "";
         let player2Sign = "";
 
-        if (signSelector.classList.contains("signSelect-active")) {
+        const hideSelector = () => {if (signSelector.classList.contains("signSelect-active")) {
             //hide
             signSelector.classList.remove("signSelect-active");
             signSelector.classList.add("signSelect-transition");
@@ -57,10 +57,13 @@ const gamePlay = (function () {
             signSelector.classList.remove('signSelect-transition');
             signSelector.classList.remove('signSelect-visible');
             signSelector.classList.remove('signSelect-hidden');
-        })
+        })} 
 
-        signX.addEventListener('click', ()=> {
+        hideSelector();
+
+        signX.addEventListener('click', () => {
             player1Sign = "X";
+            hideSelector();
         })
 
         signO.addEventListener('click', ()=> {
