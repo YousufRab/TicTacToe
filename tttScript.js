@@ -38,6 +38,8 @@ const gamePlay = (function () {
         const signSelector = document.querySelector('.signSelect');
         const signX = document.getElementById('X');
         const signO = document.getElementById('O');
+        let player1Sign = "";
+        let player2Sign = "";
 
         if (signSelector.classList.contains("signSelect-active")) {
             //hide
@@ -52,7 +54,17 @@ const gamePlay = (function () {
             signSelector.classList.add('signSelect-active');
         }
         signSelector.addEventListener('transitionend', function () {
-            signSelector.classList.remove('form-transition');
+            signSelector.classList.remove('signSelect-transition');
+            signSelector.classList.remove('signSelect-visible');
+            signSelector.classList.remove('signSelect-hidden');
+        })
+
+        signX.addEventListener('click', ()=> {
+            player1Sign = "X";
+        })
+
+        signO.addEventListener('click', ()=> {
+            player1Sign = "O";
         })
     }
 
@@ -63,5 +75,5 @@ const gamePlay = (function () {
 // Player object (factory function)
 const player = (playerSign, name) => {
 
-
+    return {playerSign, name};
 }
