@@ -25,7 +25,6 @@ const gamePlay = (function () {
     const newGame = () => {
         clearBoard();
         playerSignSelect();
-        playerNameSelect();
     }
 
     const clearBoard = () => { 
@@ -42,6 +41,7 @@ const gamePlay = (function () {
         const playerTwoName = document.getElementById('playerTwoName').value;
         tempOneName = playerOneName;
         tempTwoName = playerTwoName;
+        console.log(tempOneName);
     }
 
     const playerSignSelect = () => {
@@ -76,6 +76,7 @@ const gamePlay = (function () {
             player1Sign = "X";
             player2Sign = "O";
             hideSelector();
+            playerNameSelect();
             console.log(player1Sign);
         })
 
@@ -83,10 +84,12 @@ const gamePlay = (function () {
             player1Sign = "O";
             player2Sign = "X";
             hideSelector();
-        })         
+            playerNameSelect();
+        })          
     }
 
-    return {playerSignSelect};
+
+    return {playerSignSelect, newGame};
 
 })();
 
