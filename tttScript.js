@@ -36,8 +36,12 @@ const gamePlay = (function () {
     }
 
     const playerNameSelect = () => {
-        let playerOneName = prompt("What is your name?");
-        console.log(playerOneName);
+        let tempOneName = "";
+        let tempTwoName = "";
+        const playerOneName = document.getElementById('playerOneName').value;
+        const playerTwoName = document.getElementById('playerTwoName').value;
+        tempOneName = playerOneName;
+        tempTwoName = playerTwoName;
     }
 
     const playerSignSelect = () => {
