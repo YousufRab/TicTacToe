@@ -51,6 +51,9 @@ const gamePlay = (function () {
             signSelector.classList.add('signSelect-transition');
             signSelector.classList.add('signSelect-active');
         }
+        signSelector.addEventListener('transitionend', function () {
+            signSelector.classList.remove('form-transition');
+        })
     }
 
     return {playerSignSelect};
