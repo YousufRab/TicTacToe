@@ -85,7 +85,7 @@ const gamePlay = (function () {
             player2Sign = "X";
             const playerOneName = document.getElementById('playerOneName').value;
             const playerTwoName = document.getElementById('playerTwoName').value;
-            
+
             if (playerOneName == "" || playerTwoName == "") {
                 alert("Please enter player names");
                 return;
@@ -93,7 +93,12 @@ const gamePlay = (function () {
             tempOneName = playerOneName;
             tempTwoName = playerTwoName;
             hideSelector();
-        })          
+        })
+        
+        //Generate player one and two using player object factory function
+        firstPlayer = player(tempOneName, player1Sign);
+        secondPlayer = player(tempTwoName, player2Sign);
+        return{firstPlayer, secondPlayer}
     }
 
 
@@ -106,4 +111,10 @@ const player = (playerName, playerSign) => {
     let name = playerName;
     let sign = playerSign;
     return {name, sign};
+}
+
+
+// Test function
+function testing () {
+    console.log(firstPlayer, secondPlayer);
 }
