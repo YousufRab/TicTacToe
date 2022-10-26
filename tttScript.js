@@ -43,8 +43,6 @@ const gamePlay = (function () {
 
         let tempOneName = "";
         let tempTwoName = "";
-        const playerOneName = document.getElementById('playerOneName').value;
-        const playerTwoName = document.getElementById('playerTwoName').value;
 
         const hideSelector = () => {
             if (signSelector.classList.contains("signSelect-active")) {
@@ -70,6 +68,9 @@ const gamePlay = (function () {
         signX.addEventListener('click', () => {
             player1Sign = "X";
             player2Sign = "O";
+            const playerOneName = document.getElementById('playerOneName').value;
+            const playerTwoName = document.getElementById('playerTwoName').value;
+
             if (playerOneName == "" || playerTwoName == "") {
                 alert("Please enter player names");
                 return;
@@ -82,6 +83,9 @@ const gamePlay = (function () {
         signO.addEventListener('click', ()=> {
             player1Sign = "O";
             player2Sign = "X";
+            const playerOneName = document.getElementById('playerOneName').value;
+            const playerTwoName = document.getElementById('playerTwoName').value;
+            
             if (playerOneName == "" || playerTwoName == "") {
                 alert("Please enter player names");
                 return;
