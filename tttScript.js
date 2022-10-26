@@ -34,6 +34,10 @@ const gamePlay = (function () {
         });
     }
 
+    const createPlayers = () => {
+        
+    }
+
     const playerSignSelect = () => {
         const signSelector = document.querySelector('.signSelect');
         const signX = document.getElementById('X');
@@ -95,14 +99,12 @@ const gamePlay = (function () {
             hideSelector();
         })
         
-        //Generate player one and two using player object factory function
-        firstPlayer = player(tempOneName, player1Sign);
-        secondPlayer = player(tempTwoName, player2Sign);
-        return{firstPlayer, secondPlayer}
+        return {tempOneName, tempTwoName, player1Sign, player2Sign}
+        
     }
 
 
-    return {newGame};
+    return {newGame, playerSignSelect};
 
 })();
 
