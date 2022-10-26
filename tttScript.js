@@ -45,8 +45,6 @@ const gamePlay = (function () {
         let tempTwoName = "";
         const playerOneName = document.getElementById('playerOneName').value;
         const playerTwoName = document.getElementById('playerTwoName').value;
-        tempOneName = playerOneName;
-        tempTwoName = playerTwoName;
 
         const hideSelector = () => {
             if (signSelector.classList.contains("signSelect-active")) {
@@ -84,7 +82,7 @@ const gamePlay = (function () {
         signO.addEventListener('click', ()=> {
             player1Sign = "O";
             player2Sign = "X";
-            if (playerNameSelect().playerOneName == "" || playerNameSelect().playerTwoName == "") {
+            if (playerOneName == "" || playerTwoName == "") {
                 alert("Please enter player names");
                 return;
             }
