@@ -42,6 +42,7 @@ const gamePlay = (function () {
         tempOneName = playerOneName;
         tempTwoName = playerTwoName;
         console.log(tempOneName);
+        return {playerOneName, playerTwoName}
     }
 
     const playerSignSelect = () => {
@@ -75,7 +76,7 @@ const gamePlay = (function () {
         signX.addEventListener('click', () => {
             player1Sign = "X";
             player2Sign = "O";
-            if (playerOneName == "" || playerTwoName == "") {
+            if (playerNameSelect().playerOneName == "" || playerNameSelect().playerTwoName == "") {
                 alert("Please enter player names");
                 return;
             }
@@ -87,7 +88,7 @@ const gamePlay = (function () {
         signO.addEventListener('click', ()=> {
             player1Sign = "O";
             player2Sign = "X";
-            if (playerOneName == "" || playerTwoName == "") {
+            if (playerNameSelect().playerOneName == "" || playerNameSelect().playerTwoName == "") {
                 alert("Please enter player names");
                 return;
             }
