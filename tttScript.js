@@ -34,23 +34,19 @@ const gamePlay = (function () {
         });
     }
 
-    const playerNameSelect = () => {
-        let tempOneName = "";
-        let tempTwoName = "";
-        const playerOneName = document.getElementById('playerOneName').value;
-        const playerTwoName = document.getElementById('playerTwoName').value;
-        tempOneName = playerOneName;
-        tempTwoName = playerTwoName;
-        console.log(tempOneName);
-        return {playerOneName, playerTwoName}
-    }
-
     const playerSignSelect = () => {
         const signSelector = document.querySelector('.signSelect');
         const signX = document.getElementById('X');
         const signO = document.getElementById('O');
         let player1Sign = "";
         let player2Sign = "";
+
+        let tempOneName = "";
+        let tempTwoName = "";
+        const playerOneName = document.getElementById('playerOneName').value;
+        const playerTwoName = document.getElementById('playerTwoName').value;
+        tempOneName = playerOneName;
+        tempTwoName = playerTwoName;
 
         const hideSelector = () => {
             if (signSelector.classList.contains("signSelect-active")) {
@@ -76,13 +72,13 @@ const gamePlay = (function () {
         signX.addEventListener('click', () => {
             player1Sign = "X";
             player2Sign = "O";
-            if (playerNameSelect().playerOneName == "" || playerNameSelect().playerTwoName == "") {
+            if (playerOneName == "" || playerTwoName == "") {
                 alert("Please enter player names");
                 return;
             }
+            tempOneName = playerOneName;
+            tempTwoName = playerTwoName;
             hideSelector();
-            playerNameSelect();
-            console.log(player1Sign);
         })
 
         signO.addEventListener('click', ()=> {
@@ -92,13 +88,14 @@ const gamePlay = (function () {
                 alert("Please enter player names");
                 return;
             }
+            tempOneName = playerOneName;
+            tempTwoName = playerTwoName;
             hideSelector();
-            playerNameSelect();
         })          
     }
 
 
-    return {playerSignSelect, newGame};
+    return {newGame};
 
 })();
 
