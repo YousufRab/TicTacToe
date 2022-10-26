@@ -75,6 +75,10 @@ const gamePlay = (function () {
         signX.addEventListener('click', () => {
             player1Sign = "X";
             player2Sign = "O";
+            if (playerOneName == "" || playerTwoName == "") {
+                alert("Please enter player names");
+                return;
+            }
             hideSelector();
             playerNameSelect();
             console.log(player1Sign);
@@ -83,6 +87,10 @@ const gamePlay = (function () {
         signO.addEventListener('click', ()=> {
             player1Sign = "O";
             player2Sign = "X";
+            if (playerOneName == "" || playerTwoName == "") {
+                alert("Please enter player names");
+                return;
+            }
             hideSelector();
             playerNameSelect();
         })          
@@ -94,7 +102,8 @@ const gamePlay = (function () {
 })();
 
 // Player object (factory function)
-const player = (playerSign, name) => {
-
-    return {playerSign, name};
+const player = (playerName, playerSign) => {
+    let name = playerName;
+    let sign = playerSign;
+    return {name, sign};
 }
