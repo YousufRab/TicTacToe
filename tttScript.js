@@ -23,8 +23,14 @@ gameBoard.sqrClicked();
 const gamePlay = (function () {
     
     const newGame = () => {
+        const signSelector = document.querySelector('.signSelect');
         clearBoard();
+        hideSelector();
         playerSignSelect();
+        signSelector.addEventListener('transitionend', function () {
+            createPlayers();
+            console.log(firstPlayer, secondPlayer);
+        })
     }
 
     const clearBoard = () => { 
@@ -35,11 +41,33 @@ const gamePlay = (function () {
     }
 
     const createPlayers = () => {
-        
+        firstPlayer = player(gamePlay.playerSignSelect().tempOneName, gamePlay.playerSignSelect().player1Sign);
+        secondPlayer = player(gamePlay.playerSignSelect().tempTwoName, gamePlay.playerSignSelect().player2Sign);
+        return {firstPlayer, secondPlayer};
     }
 
-    const playerSignSelect = () => {
+    const hideSelector = () => {
         const signSelector = document.querySelector('.signSelect');
+        if (signSelector.classList.contains("signSelect-active")) {
+        //hide
+        signSelector.classList.remove("signSelect-active");
+        signSelector.classList.add("signSelect-transition");
+        signSelector.classList.add('signSelect-hidden');
+    } else {
+        //show
+        signSelector.classList.add('signSelect-visible');
+        signSelector.clientWidth;
+        signSelector.classList.add('signSelect-transition');
+        signSelector.classList.add('signSelect-active');
+    }
+    signSelector.addEventListener('transitionend', function () {
+        signSelector.classList.remove('signSelect-transition');
+        signSelector.classList.remove('signSelect-visible');
+        signSelector.classList.remove('signSelect-hidden');
+    })} 
+
+    const playerSignSelect = () => {
+        
         const signX = document.getElementById('X');
         const signO = document.getElementById('O');
         let player1Sign = "";
@@ -48,26 +76,9 @@ const gamePlay = (function () {
         let tempOneName = "";
         let tempTwoName = "";
 
-        const hideSelector = () => {
-            if (signSelector.classList.contains("signSelect-active")) {
-            //hide
-            signSelector.classList.remove("signSelect-active");
-            signSelector.classList.add("signSelect-transition");
-            signSelector.classList.add('signSelect-hidden');
-        } else {
-            //show
-            signSelector.classList.add('signSelect-visible');
-            signSelector.clientWidth;
-            signSelector.classList.add('signSelect-transition');
-            signSelector.classList.add('signSelect-active');
-        }
-        signSelector.addEventListener('transitionend', function () {
-            signSelector.classList.remove('signSelect-transition');
-            signSelector.classList.remove('signSelect-visible');
-            signSelector.classList.remove('signSelect-hidden');
-        })} 
+        
 
-        hideSelector();
+        // hideSelector();
 
         signX.addEventListener('click', () => {
             player1Sign = "X";
@@ -81,10 +92,9 @@ const gamePlay = (function () {
             }
             tempOneName = playerOneName;
             tempTwoName = playerTwoName;
-            hideSelector();
         })
 
-        signO.addEventListener('click', ()=> {
+        signO.addEventListener('click', () => {
             player1Sign = "O";
             player2Sign = "X";
             const playerOneName = document.getElementById('playerOneName').value;
@@ -96,13 +106,10 @@ const gamePlay = (function () {
             }
             tempOneName = playerOneName;
             tempTwoName = playerTwoName;
-            hideSelector();
         })
-        
-        return {tempOneName, tempTwoName, player1Sign, player2Sign}
+        return {tempOneName, tempTwoName, player1Sign, player2Sign};
         
     }
-
 
     return {newGame, playerSignSelect};
 
