@@ -1,8 +1,7 @@
 const gameBoard = (function () {
-    board = ["X", "O", "X", "O", "X", "O", "X", "O", "X", "O"];
+    board = [];
     const sqrClicked = () => {
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
-        let arraySign = 0;
         boardSquares.forEach(square => {
             square.addEventListener('click', () =>{
                 if (square.innerHTML == "") {
@@ -35,7 +34,6 @@ const gamePlay = (function () {
         });
     }
 
-
     const openSelector = () => {
         const signSelector = document.querySelector('.signSelect');
         if (signSelector.classList.contains("signSelect-active")) {
@@ -62,7 +60,6 @@ const gamePlay = (function () {
         const signO = document.getElementById('O');
         let player1Sign = "";
         let player2Sign = "";
-
         let tempOneName = "";
         let tempTwoName = "";
 
@@ -110,13 +107,9 @@ const gamePlay = (function () {
             hideSelector();
             createPlayers();
             return {firstPlayer, secondPlayer};
-        })
-
-        
+        })   
     }
-
-    return {newGame, playerSignSelect};
-
+    return {newGame};
 })();
 
 // Player object (factory function)
