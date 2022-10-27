@@ -3,11 +3,16 @@ const gameBoard = (function () {
     const sqrClicked = () => {
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
         boardSquares.forEach(square => {
+            let gameCounter = 0;
             square.addEventListener('click', () =>{
-                if (square.innerHTML == "") {
-                    square.innerHTML = board[arraySign];
-                    arraySign += 1;
-                }    
+                if (gameCounter < 9) {
+                    if (square.innerHTML == "") {
+                    square.innerHTML = firstPlayer.sign;
+                    gameCounter += 1;
+            
+                }  
+            }
+                  
             })
         })
     }
@@ -60,12 +65,12 @@ const gamePlay = (function () {
         const signO = document.getElementById('O');
         let player1Sign = "";
         let player2Sign = "";
-        let tempOneName = "";
-        let tempTwoName = "";
 
         const createPlayers = () => {
-            firstPlayer = player(tempOneName, player1Sign);
-            secondPlayer = player(tempTwoName, player2Sign);
+            const playerOneName = document.getElementById('playerOneName').value;
+            const playerTwoName = document.getElementById('playerTwoName').value;
+            firstPlayer = player(playerOneName, player1Sign);
+            secondPlayer = player(playerTwoName, player2Sign);
             return {firstPlayer, secondPlayer};
         }
         const hideSelector = () => {
@@ -85,8 +90,6 @@ const gamePlay = (function () {
                 alert("Please enter player names");
                 return;
             }
-            tempOneName = playerOneName;
-            tempTwoName = playerTwoName;
             hideSelector();
             createPlayers();
             return {firstPlayer, secondPlayer};
@@ -102,8 +105,6 @@ const gamePlay = (function () {
                 alert("Please enter player names");
                 return;
             }
-            tempOneName = playerOneName;
-            tempTwoName = playerTwoName;
             hideSelector();
             createPlayers();
             return {firstPlayer, secondPlayer};
