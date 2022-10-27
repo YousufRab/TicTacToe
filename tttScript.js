@@ -6,10 +6,16 @@ const gameBoard = (function () {
             let gameCounter = 0;
             square.addEventListener('click', () =>{
                 if (gameCounter < 9) {
-                    if (square.innerHTML == "") {
+                    if (square.innerHTML == "" && firstPlayer.turn) {
                     square.innerHTML = firstPlayer.sign;
                     gameCounter += 1;
-            
+                    firstPlayer.turn = false;
+                    secondPlayer.turn = true;
+                } else if (square.innerHTML == "" && secondPlayer.turn) {
+                    square.innerHTML = secondPlayer.sign;
+                    gameCounter += 1;
+                    firstPlayer.turn = true;
+                    secondPlayer.turn = false;
                 }  
             }
                   
@@ -69,8 +75,8 @@ const gamePlay = (function () {
         const createPlayers = () => {
             const playerOneName = document.getElementById('playerOneName').value;
             const playerTwoName = document.getElementById('playerTwoName').value;
-            firstPlayer = player(playerOneName, player1Sign);
-            secondPlayer = player(playerTwoName, player2Sign);
+            firstPlayer = player(playerOneName, player1Sign, true);
+            secondPlayer = player(playerTwoName, player2Sign, false);
             return {firstPlayer, secondPlayer};
         }
         const hideSelector = () => {
@@ -78,7 +84,6 @@ const gamePlay = (function () {
             signSelector.classList.add("signSelect-transition");
             signSelector.classList.add('signSelect-hidden');
         }
-
 
         signX.addEventListener('click', () => {
             player1Sign = "X";
@@ -114,10 +119,11 @@ const gamePlay = (function () {
 })();
 
 // Player object (factory function)
-const player = (playerName, playerSign) => {
+const player = (playerName, playerSign, playerTurn) => {
     let name = playerName;
     let sign = playerSign;
-    return {name, sign};
+    let turn = playerTurn;
+    return {name, sign, turn};
 }
 
 
