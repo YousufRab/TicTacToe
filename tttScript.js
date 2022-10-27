@@ -23,14 +23,9 @@ gameBoard.sqrClicked();
 const gamePlay = (function () {
     
     const newGame = () => {
-        const signSelector = document.querySelector('.signSelect');
         clearBoard();
-        hideSelector();
+        openSelector();
         playerSignSelect();
-        signSelector.addEventListener('transitionend', function () {
-            
-            
-        })
     }
 
     const clearBoard = () => { 
@@ -41,7 +36,7 @@ const gamePlay = (function () {
     }
 
 
-    const hideSelector = () => {
+    const openSelector = () => {
         const signSelector = document.querySelector('.signSelect');
         if (signSelector.classList.contains("signSelect-active")) {
         //hide
@@ -76,6 +71,12 @@ const gamePlay = (function () {
             secondPlayer = player(tempTwoName, player2Sign);
             return {firstPlayer, secondPlayer};
         }
+        const hideSelector = () => {
+            signSelector.classList.remove("signSelect-active");
+            signSelector.classList.add("signSelect-transition");
+            signSelector.classList.add('signSelect-hidden');
+        }
+
 
         signX.addEventListener('click', () => {
             player1Sign = "X";
@@ -89,11 +90,9 @@ const gamePlay = (function () {
             }
             tempOneName = playerOneName;
             tempTwoName = playerTwoName;
-            signSelector.classList.remove("signSelect-active");
-            signSelector.classList.add("signSelect-transition");
-            signSelector.classList.add('signSelect-hidden');
+            hideSelector();
             createPlayers();
-            console.log(firstPlayer, secondPlayer);
+            return {firstPlayer, secondPlayer};
         })
 
         signO.addEventListener('click', () => {
@@ -108,12 +107,11 @@ const gamePlay = (function () {
             }
             tempOneName = playerOneName;
             tempTwoName = playerTwoName;
-            signSelector.classList.remove("signSelect-active");
-            signSelector.classList.add("signSelect-transition");
-            signSelector.classList.add('signSelect-hidden');
+            hideSelector();
             createPlayers();
+            return {firstPlayer, secondPlayer};
         })
-        return {tempOneName, tempTwoName, player1Sign, player2Sign};
+
         
     }
 
