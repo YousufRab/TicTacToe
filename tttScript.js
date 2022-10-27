@@ -4,7 +4,7 @@ const gameBoard = (function () {
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
         boardSquares.forEach(square => {
             let gameCounter = 0;
-            square.addEventListener('click', () =>{
+            square.addEventListener('click', () => {
                 if (gameCounter < 9) {
                     if (square.innerHTML == "" && firstPlayer.turn) {
                     square.innerHTML = firstPlayer.sign;
