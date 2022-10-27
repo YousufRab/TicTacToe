@@ -111,6 +111,7 @@ const gamePlay = (function () {
             signSelector.classList.remove("signSelect-active");
             signSelector.classList.add("signSelect-transition");
             signSelector.classList.add('signSelect-hidden');
+            createPlayers();
         })
         return {tempOneName, tempTwoName, player1Sign, player2Sign};
         
