@@ -28,8 +28,8 @@ const gamePlay = (function () {
         hideSelector();
         playerSignSelect();
         signSelector.addEventListener('transitionend', function () {
-            createPlayers();
-            console.log(firstPlayer, secondPlayer);
+            
+            
         })
     }
 
@@ -40,11 +40,6 @@ const gamePlay = (function () {
         });
     }
 
-    const createPlayers = () => {
-        firstPlayer = player(gamePlay.playerSignSelect().tempOneName, gamePlay.playerSignSelect().player1Sign);
-        secondPlayer = player(gamePlay.playerSignSelect().tempTwoName, gamePlay.playerSignSelect().player2Sign);
-        return {firstPlayer, secondPlayer};
-    }
 
     const hideSelector = () => {
         const signSelector = document.querySelector('.signSelect');
@@ -67,7 +62,7 @@ const gamePlay = (function () {
     })} 
 
     const playerSignSelect = () => {
-        
+        const signSelector = document.querySelector('.signSelect');
         const signX = document.getElementById('X');
         const signO = document.getElementById('O');
         let player1Sign = "";
@@ -76,9 +71,11 @@ const gamePlay = (function () {
         let tempOneName = "";
         let tempTwoName = "";
 
-        
-
-        // hideSelector();
+        const createPlayers = () => {
+            firstPlayer = player(tempOneName, player1Sign);
+            secondPlayer = player(tempTwoName, player2Sign);
+            return {firstPlayer, secondPlayer};
+        }
 
         signX.addEventListener('click', () => {
             player1Sign = "X";
@@ -92,6 +89,11 @@ const gamePlay = (function () {
             }
             tempOneName = playerOneName;
             tempTwoName = playerTwoName;
+            signSelector.classList.remove("signSelect-active");
+            signSelector.classList.add("signSelect-transition");
+            signSelector.classList.add('signSelect-hidden');
+            createPlayers();
+            console.log(firstPlayer, secondPlayer);
         })
 
         signO.addEventListener('click', () => {
@@ -106,6 +108,9 @@ const gamePlay = (function () {
             }
             tempOneName = playerOneName;
             tempTwoName = playerTwoName;
+            signSelector.classList.remove("signSelect-active");
+            signSelector.classList.add("signSelect-transition");
+            signSelector.classList.add('signSelect-hidden');
         })
         return {tempOneName, tempTwoName, player1Sign, player2Sign};
         
