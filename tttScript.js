@@ -38,8 +38,6 @@ const gamePlay = (function () {
         clearBoard();
         openSelector();
         playerSignSelect();
-        signO.removeEventListener('click', chooseSignO);
-        signX.removeEventListener('click', chooseSignX);
     }
 
     const clearBoard = () => { 
@@ -101,6 +99,7 @@ const gamePlay = (function () {
             }
             hideSelector();
             createPlayers();
+            
             return {firstPlayer, secondPlayer};
         }
 
@@ -119,8 +118,8 @@ const gamePlay = (function () {
             return {firstPlayer, secondPlayer};
         }
 
-        signX.addEventListener('click', chooseSignX);
-        signO.addEventListener('click', chooseSignO);   
+        signX.addEventListener('click', chooseSignX, {once: true});
+        signO.addEventListener('click', chooseSignO, {once:true});  
     }
     return {newGame};
 })();
