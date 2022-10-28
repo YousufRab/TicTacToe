@@ -105,7 +105,6 @@ const gamePlay = (function () {
             if (playerOneName == "" || playerTwoName == "") {
                 alert("Please enter player names");
                 signX.addEventListener('click', chooseSignX, {once: true});
-                console.log("Choose signX is firing")
                 return;
             }
             hideSelector();
@@ -123,8 +122,6 @@ const gamePlay = (function () {
             if (playerOneName == "" || playerTwoName == "") {
                 alert("Please enter player names");
                 signO.addEventListener('click', chooseSignO, {once:true});
-                
-                console.log("Choose signO is firing")
                 return;
             }
             hideSelector();
