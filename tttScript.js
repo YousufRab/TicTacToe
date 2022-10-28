@@ -28,18 +28,6 @@ const gameBoard = (function () {
 
 gameBoard.sqrClicked();
 
-const signX = document.getElementById('X');
-const signO = document.getElementById('O');
-const playerOneName = document.getElementById('playerOneName').value;
-const playerTwoName = document.getElementById('playerTwoName').value;
-
-signX.addEventListener('click', () => {
-    if (playerOneName == "" || playerTwoName == "") {
-
-    }
-})
-
-
 // Gameplay module for controlling various aspects of the game
 const gamePlay = (function () {
     
