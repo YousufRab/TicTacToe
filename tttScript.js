@@ -1,5 +1,16 @@
 const gameBoard = (function () {
     board = [];
+    //Assign all squares in html element to their own variable
+    let sqrOne = document.getElementById('1Sqr');
+    let sqrTwo = document.getElementById('2Sqr');
+    let sqrThree = document.getElementById('3Sqr');
+    let sqrFour = document.getElementById('4Sqr');
+    let sqrFive = document.getElementById('5Sqr');
+    let sqrSix = document.getElementById('6Sqr');
+    let sqrSeven = document.getElementById('7Sqr');
+    let sqrEight = document.getElementById('8Sqr');
+    let sqrNine = document.getElementById('9Sqr');
+
     const sqrClicked = () => {
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
         boardSquares.forEach(square => {
@@ -21,7 +32,8 @@ const gameBoard = (function () {
             })
         })
     }
-    const checkForWin = () => {
+
+    const checkForPlayerOneWin = () => {
         
     }
 
