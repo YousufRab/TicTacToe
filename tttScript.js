@@ -28,13 +28,22 @@ const gameBoard = (function () {
 
 gameBoard.sqrClicked();
 
+const signX = document.getElementById('X');
+const signO = document.getElementById('O');
+const playerOneName = document.getElementById('playerOneName').value;
+const playerTwoName = document.getElementById('playerTwoName').value;
+
+signX.addEventListener('click', () => {
+    if (playerOneName == "" || playerTwoName == "") {
+
+    }
+})
+
 
 // Gameplay module for controlling various aspects of the game
 const gamePlay = (function () {
     
     const newGame = () => {
-        const signX = document.getElementById('X');
-        const signO = document.getElementById('O');
         clearBoard();
         openSelector();
         playerSignSelect();
@@ -95,11 +104,11 @@ const gamePlay = (function () {
 
             if (playerOneName == "" || playerTwoName == "") {
                 alert("Please enter player names");
+                signX.addEventListener('click', chooseSignX, {once: true});
                 return;
             }
             hideSelector();
             createPlayers();
-            
             return {firstPlayer, secondPlayer};
         }
 
@@ -111,17 +120,17 @@ const gamePlay = (function () {
 
             if (playerOneName == "" || playerTwoName == "") {
                 alert("Please enter player names");
+                signO.addEventListener('click', chooseSignO, {once:true}); 
                 return;
             }
             hideSelector();
             createPlayers();
             return {firstPlayer, secondPlayer};
         }
-
         signX.addEventListener('click', chooseSignX, {once: true});
         signO.addEventListener('click', chooseSignO, {once:true});  
     }
-    return {newGame};
+    return {newGame, playerSignSelect};
 })();
 
 // Player object (factory function)
