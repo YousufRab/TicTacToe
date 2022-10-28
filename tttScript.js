@@ -33,9 +33,13 @@ gameBoard.sqrClicked();
 const gamePlay = (function () {
     
     const newGame = () => {
+        const signX = document.getElementById('X');
+        const signO = document.getElementById('O');
         clearBoard();
         openSelector();
         playerSignSelect();
+        signO.removeEventListener('click', chooseSignO);
+        signX.removeEventListener('click', chooseSignX);
     }
 
     const clearBoard = () => { 
@@ -85,7 +89,7 @@ const gamePlay = (function () {
             signSelector.classList.add('signSelect-hidden');
         }
 
-        signX.addEventListener('click', () => {
+        const chooseSignX = () => {
             player1Sign = "X";
             player2Sign = "O";
             const playerOneName = document.getElementById('playerOneName').value;
@@ -98,9 +102,9 @@ const gamePlay = (function () {
             hideSelector();
             createPlayers();
             return {firstPlayer, secondPlayer};
-        })
+        }
 
-        signO.addEventListener('click', () => {
+        const chooseSignO = () => {
             player1Sign = "O";
             player2Sign = "X";
             const playerOneName = document.getElementById('playerOneName').value;
@@ -113,7 +117,10 @@ const gamePlay = (function () {
             hideSelector();
             createPlayers();
             return {firstPlayer, secondPlayer};
-        })   
+        }
+
+        signX.addEventListener('click', chooseSignX);
+        signO.addEventListener('click', chooseSignO);   
     }
     return {newGame};
 })();
