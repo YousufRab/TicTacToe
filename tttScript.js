@@ -18,10 +18,13 @@ const gameBoard = (function () {
                     secondPlayer.turn = false;
                 }  
             }
-                  
             })
         })
     }
+    const checkForWin = () => {
+        
+    }
+
 
     return {board, sqrClicked};
 })();
