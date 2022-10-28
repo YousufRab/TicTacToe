@@ -105,10 +105,12 @@ const gamePlay = (function () {
             if (playerOneName == "" || playerTwoName == "") {
                 alert("Please enter player names");
                 signX.addEventListener('click', chooseSignX, {once: true});
+                console.log("Choose signX is firing")
                 return;
             }
             hideSelector();
             createPlayers();
+            signO.removeEventListener('click', chooseSignO, {once:true});
             return {firstPlayer, secondPlayer};
         }
 
@@ -120,11 +122,14 @@ const gamePlay = (function () {
 
             if (playerOneName == "" || playerTwoName == "") {
                 alert("Please enter player names");
-                signO.addEventListener('click', chooseSignO, {once:true}); 
+                signO.addEventListener('click', chooseSignO, {once:true});
+                
+                console.log("Choose signO is firing")
                 return;
             }
             hideSelector();
             createPlayers();
+            signX.removeEventListener('click', chooseSignX, {once:true}); 
             return {firstPlayer, secondPlayer};
         }
         signX.addEventListener('click', chooseSignX, {once: true});
