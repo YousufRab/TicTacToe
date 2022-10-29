@@ -1,6 +1,6 @@
 const gameBoard = (function () {
     board = [];
-    //Assign all squares in html element to their own variable
+    //Assign all squares in html doc to their own variable
     let sqrOne = document.getElementById('1Sqr');
     let sqrTwo = document.getElementById('2Sqr');
     let sqrThree = document.getElementById('3Sqr');
@@ -22,21 +22,22 @@ const gameBoard = (function () {
                     gameCounter += 1;
                     firstPlayer.turn = false;
                     secondPlayer.turn = true;
+                    checkForWin();
                 } else if (square.innerHTML == "" && secondPlayer.turn) {
                     square.innerHTML = secondPlayer.sign;
                     gameCounter += 1;
                     firstPlayer.turn = true;
                     secondPlayer.turn = false;
+                    checkForWin();
                 }  
             }
             })
         })
     }
 
-    const checkForPlayerOneWin = () => {
+    const checkForWin = () => {
         
     }
-
 
     return {board, sqrClicked};
 })();
@@ -113,6 +114,8 @@ const gamePlay = (function () {
             hideSelector();
             createPlayers();
             signO.removeEventListener('click', chooseSignO, {once:true});
+            playerOneName.innerHTML = "";
+            playerTwoName.innerHTML = "";
             return {firstPlayer, secondPlayer};
         }
 
@@ -130,6 +133,8 @@ const gamePlay = (function () {
             hideSelector();
             createPlayers();
             signX.removeEventListener('click', chooseSignX, {once:true}); 
+            playerOneName.innerHTML = "";
+            playerTwoName.innerHTML = "";
             return {firstPlayer, secondPlayer};
         }
         signX.addEventListener('click', chooseSignX, {once: true});
