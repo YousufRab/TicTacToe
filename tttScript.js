@@ -99,7 +99,27 @@ const gameBoard = (function () {
 
     }
 
-    return {board, sqrClicked};
+    const winMessage = () => {
+        const winMessage = document.querySelector('.victory');
+        if (winMessage.classList.contains("victory-active")) {
+        //hide
+        winMessage.classList.remove("victory-active");
+        winMessage.classList.add("victory-transition");
+        winMessage.classList.add('victory-hidden');
+    } else {
+        //show
+        winMessage.classList.add('victory-visible');
+        winMessage.clientWidth;
+        winMessage.classList.add('victory-transition');
+        winMessage.classList.add('victory-active');
+    }
+    winMessage.addEventListener('transitionend', function () {
+        winMessage.classList.remove('victory-transition');
+        winMessage.classList.remove('victory-visible');
+        winMessage.classList.remove('victory-hidden');
+    })} 
+
+    return {board, sqrClicked, winMessage};
 })();
 
 gameBoard.sqrClicked();
