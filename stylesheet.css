@@ -9,6 +9,8 @@
     display: block;
 }
 
+
+/* CSS for signSelector fade in/out feature */
 .signSelect {
     display: none;
     opacity: 0;
@@ -34,5 +36,12 @@
 
 .signSelect-hidden {
     display: block;
+    opacity: 0;
+}
+
+/* CSS for victory message fade in/out feature */
+
+.victory {
+    display: none;
     opacity: 0;
 }
