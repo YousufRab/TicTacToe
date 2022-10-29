@@ -150,8 +150,8 @@ const gamePlay = (function () {
         const createPlayers = () => {
             const playerOneName = document.getElementById('playerOneName').value;
             const playerTwoName = document.getElementById('playerTwoName').value;
-            firstPlayer = player(playerOneName, player1Sign, true);
-            secondPlayer = player(playerTwoName, player2Sign, false);
+            firstPlayer = player(playerOneName, player1Sign, true, false);
+            secondPlayer = player(playerTwoName, player2Sign, false, false);
             return {firstPlayer, secondPlayer};
         }
         const hideSelector = () => {
@@ -209,7 +209,7 @@ const player = (playerName, playerSign, playerTurn, playerWin) => {
     let sign = playerSign;
     let turn = playerTurn;
     let win = playerWin;
-    return {name, sign, turn};
+    return {name, sign, turn, win};
 }
 
 
