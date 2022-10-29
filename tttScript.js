@@ -94,6 +94,9 @@ const gameBoard = (function () {
                 };
                 break;
         }
+        
+    return false;
+
     }
 
     return {board, sqrClicked};
@@ -201,10 +204,11 @@ const gamePlay = (function () {
 })();
 
 // Player object (factory function)
-const player = (playerName, playerSign, playerTurn) => {
+const player = (playerName, playerSign, playerTurn, playerWin) => {
     let name = playerName;
     let sign = playerSign;
     let turn = playerTurn;
+    let win = playerWin;
     return {name, sign, turn};
 }
 
