@@ -45,7 +45,14 @@ const gameBoard = (function () {
                 };
                 break;
             case (sqrFour.innerHTML != "" && sqrFour.innerHTML == sqrFive.innerHTML && sqrFive.innerHTML == sqrSix.innerHTML):
-                if (sqrOne.innerHTML == firstPlayer.sign) {
+                if (sqrFour.innerHTML == firstPlayer.sign) {
+                    console.log("Player one wins!");
+                } else {
+                    console.log("Player two wins!");
+                };
+                break;
+            case (sqrSeven.innerHTML != "" && sqrSeven.innerHTML == sqrEight.innerHTML && sqrEight.innerHTML == sqrNine.innerHTML):
+                if (sqrSeven.innerHTML == firstPlayer.sign) {
                     console.log("Player one wins!");
                 } else {
                     console.log("Player two wins!");
