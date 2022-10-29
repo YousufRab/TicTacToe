@@ -45,3 +45,7 @@
     display: none;
     opacity: 0;
 }
+
+.victory-visible {
+    display: block;
+}
