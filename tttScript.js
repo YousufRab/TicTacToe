@@ -44,7 +44,13 @@ const gameBoard = (function () {
                     console.log("Player two wins!");
                 };
                 break;
-            
+            case (sqrFour.innerHTML != "" && sqrFour.innerHTML == sqrFive.innerHTML && sqrFive.innerHTML == sqrSix.innerHTML):
+                if (sqrOne.innerHTML == firstPlayer.sign) {
+                    console.log("Player one wins!");
+                } else {
+                    console.log("Player two wins!");
+                };
+                break;
         }
     }
 
