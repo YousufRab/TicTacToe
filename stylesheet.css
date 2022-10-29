@@ -49,3 +49,22 @@
 .victory-visible {
     display: block;
 }
+
+.victory-active {
+    display: block;
+    opacity: 1;
+}
+
+.victory-transition.victory-visible {
+    display: block;
+    opacity: 1;
+}
+
+.victory-transition {
+    transition: opacity 1s ease;
+}
+
+.victory-hidden {
+    display: block;
+    opacity: 0;
+}
