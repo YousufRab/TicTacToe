@@ -86,6 +86,13 @@ const gameBoard = (function () {
                     console.log(secondPlayer.name + " wins!");
                 };
                 break;
+            case (sqrThree.innerHTML != "" && sqrThree.innerHTML == sqrFive.innerHTML && sqrFive.innerHTML == sqrSeven.innerHTML):
+                if (sqrThree.innerHTML == firstPlayer.sign) {
+                    console.log(firstPlayer.name + " wins!");
+                } else {
+                    console.log(secondPlayer.name + " wins!");
+                };
+                break;
         }
     }
 
