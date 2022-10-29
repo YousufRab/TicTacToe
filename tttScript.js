@@ -23,6 +23,7 @@ const gameBoard = (function () {
                     firstPlayer.turn = false;
                     secondPlayer.turn = true;
                     checkForWin();
+                    
                 } else if (square.innerHTML == "" && secondPlayer.turn) {
                     square.innerHTML = secondPlayer.sign;
                     gameCounter += 1;
@@ -40,57 +41,73 @@ const gameBoard = (function () {
             case (sqrOne.innerHTML!="" && sqrOne.innerHTML == sqrTwo.innerHTML && sqrTwo.innerHTML == sqrThree.innerHTML):
                 if (sqrOne.innerHTML == firstPlayer.sign) {
                     firstPlayer.win = true;
+                    return true;
                 } else {
                     secondPlayer.win = true;
+                    return true;
                 };
                 break;
             case (sqrFour.innerHTML != "" && sqrFour.innerHTML == sqrFive.innerHTML && sqrFive.innerHTML == sqrSix.innerHTML):
                 if (sqrFour.innerHTML == firstPlayer.sign) {
                     firstPlayer.win = true;
+                    return true;
                 } else {
                     secondPlayer.win = true;
+                    return true;
                 };
                 break;
             case (sqrSeven.innerHTML != "" && sqrSeven.innerHTML == sqrEight.innerHTML && sqrEight.innerHTML == sqrNine.innerHTML):
                 if (sqrSeven.innerHTML == firstPlayer.sign) {
                     firstPlayer.win = true;
+                    return true;
                 } else {
                     secondPlayer.win = true;
+                    return true;
                 };
                 break;
             case (sqrOne.innerHTML != "" && sqrOne.innerHTML == sqrFour.innerHTML && sqrFour.innerHTML == sqrSeven.innerHTML):
                 if (sqrOne.innerHTML == firstPlayer.sign) {
                     firstPlayer.win = true;
+                    return true;
                 } else {
                     secondPlayer.win = true;
+                    return true;
                 };
                 break;    
             case (sqrTwo.innerHTML != "" && sqrTwo.innerHTML == sqrFive.innerHTML && sqrFive.innerHTML == sqrEight.innerHTML):
                 if (sqrTwo.innerHTML == firstPlayer.sign) {
                     firstPlayer.win = true;
+                    return true;
                 } else {
                     secondPlayer.win = true;
+                    return true;
                 };
                 break;
             case (sqrThree.innerHTML != "" && sqrThree.innerHTML == sqrSix.innerHTML && sqrSix.innerHTML == sqrNine.innerHTML):
                 if (sqrThree.innerHTML == firstPlayer.sign) {
                     firstPlayer.win = true;
+                    return true;
                 } else {
                     secondPlayer.win = true;
+                    return true;
                 };
                 break;
             case (sqrOne.innerHTML != "" && sqrOne.innerHTML == sqrFive.innerHTML && sqrFive.innerHTML == sqrNine.innerHTML):
                 if (sqrOne.innerHTML == firstPlayer.sign) {
                     firstPlayer.win = true;
+                    return true;
                 } else {
                     secondPlayer.win = true;
+                    return true;
                 };
                 break;
             case (sqrThree.innerHTML != "" && sqrThree.innerHTML == sqrFive.innerHTML && sqrFive.innerHTML == sqrSeven.innerHTML):
                 if (sqrThree.innerHTML == firstPlayer.sign) {
                     firstPlayer.win = true;
+                    return true;
                 } else {
                     secondPlayer.win = true;
+                    return true;
                 };
                 break;
         }
