@@ -156,6 +156,14 @@ const gamePlay = (function () {
         clearBoard();
         openSelector();
         playerSignSelect();
+        hideWinMessage();
+    }
+
+    const hideWinMessage = () => {
+        const winMessage = document.querySelector('.victory');
+        winMessage.classList.remove(".victory-active");
+        winMessage.classList.add("victory-transition");
+        winMessage.classList.add('victory-hidden');
     }
 
     const clearBoard = () => { 
