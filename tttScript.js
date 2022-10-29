@@ -36,7 +36,16 @@ const gameBoard = (function () {
     }
 
     const checkForWin = () => {
-        
+        switch(true) {
+            case (sqrOne.innerHTML!="" && sqrOne.innerHTML == sqrTwo.innerHTML && sqrTwo.innerHTML == sqrThree.innerHTML):
+                if (sqrOne.innerHTML == firstPlayer.sign) {
+                    console.log("Player one wins!");
+                } else {
+                    console.log("Player two wins!");
+                };
+                break;
+            
+        }
     }
 
     return {board, sqrClicked};
@@ -114,8 +123,8 @@ const gamePlay = (function () {
             hideSelector();
             createPlayers();
             signO.removeEventListener('click', chooseSignO, {once:true});
-            playerOneName.innerHTML = "";
-            playerTwoName.innerHTML = "";
+            document.getElementById('playerOneName').value = "";
+            document.getElementById('playerTwoName').value = "";
             return {firstPlayer, secondPlayer};
         }
 
@@ -133,8 +142,8 @@ const gamePlay = (function () {
             hideSelector();
             createPlayers();
             signX.removeEventListener('click', chooseSignX, {once:true}); 
-            playerOneName.innerHTML = "";
-            playerTwoName.innerHTML = "";
+            document.getElementById('playerOneName').value = "";
+            document.getElementById('playerTwoName').value = "";
             return {firstPlayer, secondPlayer};
         }
         signX.addEventListener('click', chooseSignX, {once: true});
