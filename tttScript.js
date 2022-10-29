@@ -23,13 +23,19 @@ const gameBoard = (function () {
                     firstPlayer.turn = false;
                     secondPlayer.turn = true;
                     checkForWin();
-                    
-                } else if (square.innerHTML == "" && secondPlayer.turn) {
+                    if(checkForWin() == true) {
+                        winMessage();
+                    }
+
+                    }else if (square.innerHTML == "" && secondPlayer.turn) {
                     square.innerHTML = secondPlayer.sign;
                     gameCounter += 1;
                     firstPlayer.turn = true;
                     secondPlayer.turn = false;
                     checkForWin();
+                    if(checkForWin() == true) {
+                        winMessage();
+                    }
                 }  
             }
             })
