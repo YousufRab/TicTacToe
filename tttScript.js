@@ -101,6 +101,15 @@ const gameBoard = (function () {
 
     const winMessage = () => {
         const winMessage = document.querySelector('.victory');
+        const winner = document.getElementById('winner');
+
+        // Insert winning players name into victory message
+        if (firstPlayer.win == true) {
+            winner.innerHTML = firstPlayer.name;
+        } else if (secondPlayer.win == true) {
+            winner.innerHTML = secondPlayer.name;
+        }
+
         if (winMessage.classList.contains("victory-active")) {
         //hide
         winMessage.classList.remove("victory-active");
