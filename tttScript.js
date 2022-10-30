@@ -184,6 +184,10 @@ const gameBoard = (function () {
         })
     }
 
+    const playSound = () => {
+        
+    }
+
     return {board, sqrClicked, gameStartBtn};
 })();
 
