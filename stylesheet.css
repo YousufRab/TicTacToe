@@ -68,3 +68,33 @@
     display: block;
     opacity: 0;
 }
+
+/* CSS for creating fade in/out effect for draw/tie message */
+
+.draw {
+    display: none;
+    opacity: 0;
+}
+
+.draw-visible {
+    display: block;
+}
+
+.draw-active {
+    display: block;
+    opacity: 1;
+}
+
+.draw-transition.draw-visible {
+    display: block;
+    opacity: 1;
+}
+
+.draw-transition {
+    transition: opacity 0.7s ease;
+}
+
+.draw-hidden {
+    display: block;
+    opacity: 0;
+}
