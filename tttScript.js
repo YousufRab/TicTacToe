@@ -146,10 +146,26 @@ const gameBoard = (function () {
 
     const drawMessage = () => {
         const drawMessage = document.querySelector('.draw');
-        
+        if (drawMessage.classList.contains("draw-active")) {
+            //hide
+            drawMessage.classList.remove("draw-active");
+            drawMessage.classList.add("draw-transition");
+            drawMessage.classList.add('draw-hidden');
+            } else {
+            //show
+            drawMessage.classList.add('draw-visible');
+            drawMessage.clientWidth;
+            drawMessage.classList.add('draw-transition');
+            drawMessage.classList.add('draw-active');
+            }
+            drawMessage.addEventListener('transitionend', function () {
+            drawMessage.classList.remove('draw-transition');
+            drawMessage.classList.remove('draw-visible');
+            drawMessage.classList.remove('draw-hidden');
+        })
     }
 
-    return {board, sqrClicked};
+    return {board, sqrClicked, drawMessage};
 })();
 
 gameBoard.sqrClicked();
@@ -276,6 +292,5 @@ const player = (playerName, playerSign, playerTurn, playerWin) => {
 
 // Test function
 function testing () {
-    const winMessage = document.querySelector('.victory');
-    console.log(winMessage.classList.contains('.victory-active'));
+    drawMessage();
 }
