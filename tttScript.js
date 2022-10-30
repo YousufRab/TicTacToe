@@ -16,6 +16,9 @@ const gameBoard = (function () {
         boardSquares.forEach(square => {
             let gameCounter = 0;
             square.addEventListener('click', () => {
+                if (gameCounter == 9 && !firstPlayer.win && !secondPlayer.win) {
+                    drawMessage();
+                }
                 if (gameCounter < 9 && !firstPlayer.win && !secondPlayer.win) {
                     if (square.innerHTML == "" && firstPlayer.turn) {
                         square.innerHTML = firstPlayer.sign;
