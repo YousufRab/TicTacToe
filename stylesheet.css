@@ -11,9 +11,13 @@
 
 .display {
     display: flex;
+    justify-content: center;
 }
 
-#playerOneDisplay,
+#playerOneDisplay, #playerTwoDisplay {
+    display: flex;
+    flex-direction: column;
+}
 
 /* CSS for signSelector fade in/out feature */
 .signSelect {
