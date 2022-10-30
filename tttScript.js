@@ -158,7 +158,6 @@ const gameBoard = (function () {
 
     const checkForDraw = () => {
         if (gameCounter == 9 && !firstPlayer.win && !secondPlayer.win) {
-            console.log("Its a draw bro come on");
             drawMessage();
             gameCounter = 0;
         };
@@ -305,6 +304,11 @@ const gamePlay = (function () {
         signX.addEventListener('click', chooseSignX, {once: true});
         signO.addEventListener('click', chooseSignO, {once:true});  
     }
+
+    displayPlayerDetails = () => {
+        
+    }
+
     return {newGame};
 })();
 
