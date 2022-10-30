@@ -12,6 +12,7 @@ const gameBoard = (function () {
     let sqrNine = document.getElementById('9Sqr');
 
     let gameCounter = 0;
+
     const sqrClicked = () => {
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
         boardSquares.forEach(square => {
@@ -25,8 +26,9 @@ const gameBoard = (function () {
                         firstPlayer.turn = false;
                         secondPlayer.turn = true;
                         checkForWin();
-                        if(checkForWin() == true) {
+                        if(checkForWin()) {
                             winMessage();
+                            gameCounter = 0;
                         }
 
                     }else if (square.innerHTML == "" && secondPlayer.turn) {
@@ -36,8 +38,9 @@ const gameBoard = (function () {
                         firstPlayer.turn = true;
                         secondPlayer.turn = false;
                         checkForWin();
-                        if(checkForWin() == true) {
+                        if(checkForWin()) {
                             winMessage();
+                            gameCounter = 0;
                         }
                     }  
                 }
