@@ -30,6 +30,7 @@ const gameBoard = (function () {
                             gameCounter = 0;
                         }
                         checkForDraw();
+                        playSound();
                     }else if (square.innerHTML == "" && secondPlayer.turn) {
                         square.innerHTML = secondPlayer.sign;
                         gameCounter += 1;
@@ -41,6 +42,7 @@ const gameBoard = (function () {
                             gameCounter = 0;
                         }
                         checkForDraw();
+                        playSound();
                     }  
                 }
             })
