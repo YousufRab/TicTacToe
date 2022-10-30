@@ -49,7 +49,9 @@ const gameBoard = (function () {
 
     const gameStartBtn = () => {
         let gameStartBtns = Array.from(document.querySelectorAll('.newGame'));
-        
+        gameStartBtns.forEach( button => {
+            button.addEventListener('click', gamePlay.newGame);
+        })
     }
 
     const checkForWin = () => {
@@ -183,10 +185,9 @@ const gameBoard = (function () {
         })
     }
 
-    return {board, sqrClicked, drawMessage};
+    return {board, sqrClicked, gameStartBtn};
 })();
 
-gameBoard.sqrClicked();
 
 // Gameplay module for controlling various aspects of the game
 const gamePlay = (function () {
@@ -304,7 +305,7 @@ const gamePlay = (function () {
         signX.addEventListener('click', chooseSignX, {once: true});
         signO.addEventListener('click', chooseSignO, {once:true});  
     }
-    return {newGame, playerSignSelect};
+    return {newGame};
 })();
 
 // Player object (factory function)
@@ -321,3 +322,7 @@ const player = (playerName, playerSign, playerTurn, playerWin) => {
 function testing () {
     gameBoard.drawMessage();
 }
+
+// Call gameBoard functions to give functionality to gameBoard and buttons
+gameBoard.sqrClicked();
+gameBoard.gameStartBtn();
