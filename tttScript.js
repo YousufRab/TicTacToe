@@ -280,7 +280,6 @@ const gamePlay = (function () {
             signO.removeEventListener('click', chooseSignO, {once:true});
             document.getElementById('playerOneName').value = "";
             document.getElementById('playerTwoName').value = "";
-            return {firstPlayer, secondPlayer};
         }
 
         const chooseSignO = () => {
@@ -299,7 +298,6 @@ const gamePlay = (function () {
             signX.removeEventListener('click', chooseSignX, {once:true}); 
             document.getElementById('playerOneName').value = "";
             document.getElementById('playerTwoName').value = "";
-            return {firstPlayer, secondPlayer};
         }
         signX.addEventListener('click', chooseSignX, {once: true});
         signO.addEventListener('click', chooseSignO, {once:true});  
