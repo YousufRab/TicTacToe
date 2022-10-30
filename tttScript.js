@@ -178,6 +178,7 @@ const gamePlay = (function () {
         openSelector();
         playerSignSelect();
         hideWinMessage();
+        hideDrawMessage();
     }
 
     const hideWinMessage = () => {
@@ -186,12 +187,16 @@ const gamePlay = (function () {
                 winMessage.classList.remove("victory-active");
                 winMessage.classList.add("victory-transition");
                 winMessage.classList.add('victory-hidden');
-                console.log("Hide win message function called!") 
         }
     }
 
     const hideDrawMessage = () => {
-        
+        const drawMessage = document.querySelector('.draw');
+        if (drawMessage.classList.contains('draw-active')) {
+                drawMessage.classList.remove("draw-active");
+                drawMessage.classList.add("draw-transition");
+                drawMessage.classList.add('draw-hidden');
+        }
     }
 
     const clearBoard = () => { 
