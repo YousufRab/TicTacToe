@@ -306,7 +306,10 @@ const gamePlay = (function () {
     }
 
     displayPlayerDetails = () => {
-        
+        (document.getElementById('playerOneDisplayName')).innerHTML = firstPlayer.name;
+        (document.getElementById('playerOneDisplaySign')).innerHTML = firstPlayer.sign;
+        (document.getElementById('playerTwoDisplayName')).innerHTML = secondPlayer.name;
+        (document.getElementById('playerTwoDisplaySign')).innerHTML = secondPlayer.sign;
     }
 
     return {newGame};
