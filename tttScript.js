@@ -154,6 +154,7 @@ const gameBoard = (function () {
         if (gameCounter == 9 && !firstPlayer.win && !secondPlayer.win) {
             console.log("Its a draw bro come on");
             drawMessage();
+            gameCounter = 0;
         };
     }
 
