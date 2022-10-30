@@ -131,14 +131,14 @@ const gameBoard = (function () {
         winMessage.classList.remove("victory-active");
         winMessage.classList.add("victory-transition");
         winMessage.classList.add('victory-hidden');
-    } else {
+        } else {
         //show
         winMessage.classList.add('victory-visible');
         winMessage.clientWidth;
         winMessage.classList.add('victory-transition');
         winMessage.classList.add('victory-active');
-    }
-    winMessage.addEventListener('transitionend', function () {
+        }
+        winMessage.addEventListener('transitionend', function () {
         winMessage.classList.remove('victory-transition');
         winMessage.classList.remove('victory-visible');
         winMessage.classList.remove('victory-hidden');
@@ -161,9 +161,12 @@ const gamePlay = (function () {
 
     const hideWinMessage = () => {
         const winMessage = document.querySelector('.victory');
-        winMessage.classList.remove(".victory-active");
-        winMessage.classList.add("victory-transition");
-        winMessage.classList.add('victory-hidden');
+        if (winMessage.classList.contains('victory-active')) {
+                winMessage.classList.remove("victory-active");
+                winMessage.classList.add("victory-transition");
+                winMessage.classList.add('victory-hidden');
+                console.log("Hide win message function called!") 
+        }
     }
 
     const clearBoard = () => { 
@@ -268,5 +271,6 @@ const player = (playerName, playerSign, playerTurn, playerWin) => {
 
 // Test function
 function testing () {
-    console.log(firstPlayer, secondPlayer);
+    const winMessage = document.querySelector('.victory');
+    console.log(winMessage.classList.contains('.victory-active'));
 }
