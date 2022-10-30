@@ -22,7 +22,6 @@ const gameBoard = (function () {
                     if (square.innerHTML == "" && firstPlayer.turn) {
                         square.innerHTML = firstPlayer.sign;
                         gameCounter += 1;
-                        checkForDraw();
                         firstPlayer.turn = false;
                         secondPlayer.turn = true;
                         checkForWin();
@@ -30,11 +29,10 @@ const gameBoard = (function () {
                             winMessage();
                             gameCounter = 0;
                         }
-
+                        checkForDraw();
                     }else if (square.innerHTML == "" && secondPlayer.turn) {
                         square.innerHTML = secondPlayer.sign;
                         gameCounter += 1;
-                        checkForDraw();
                         firstPlayer.turn = true;
                         secondPlayer.turn = false;
                         checkForWin();
@@ -42,6 +40,7 @@ const gameBoard = (function () {
                             winMessage();
                             gameCounter = 0;
                         }
+                        checkForDraw();
                     }  
                 }
             })
