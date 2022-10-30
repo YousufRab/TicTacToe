@@ -11,18 +11,17 @@ const gameBoard = (function () {
     let sqrEight = document.getElementById('8Sqr');
     let sqrNine = document.getElementById('9Sqr');
 
+    let gameCounter = 0;
     const sqrClicked = () => {
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
         boardSquares.forEach(square => {
-            let gameCounter = 0;
+            
             square.addEventListener('click', () => {
-                if (gameCounter == 9 && !firstPlayer.win && !secondPlayer.win) {
-                    drawMessage();
-                }
                 if (gameCounter < 9 && !firstPlayer.win && !secondPlayer.win) {
                     if (square.innerHTML == "" && firstPlayer.turn) {
                         square.innerHTML = firstPlayer.sign;
                         gameCounter += 1;
+                        checkForDraw();
                         firstPlayer.turn = false;
                         secondPlayer.turn = true;
                         checkForWin();
@@ -33,6 +32,7 @@ const gameBoard = (function () {
                     }else if (square.innerHTML == "" && secondPlayer.turn) {
                         square.innerHTML = secondPlayer.sign;
                         gameCounter += 1;
+                        checkForDraw();
                         firstPlayer.turn = true;
                         secondPlayer.turn = false;
                         checkForWin();
@@ -146,6 +146,13 @@ const gameBoard = (function () {
         winMessage.classList.remove('victory-visible');
         winMessage.classList.remove('victory-hidden');
     })} 
+
+    const checkForDraw = () => {
+        if (gameCounter == 9 && !firstPlayer.win && !secondPlayer.win) {
+            console.log("Its a draw bro come on");
+            drawMessage();
+        };
+    }
 
     const drawMessage = () => {
         const drawMessage = document.querySelector('.draw');
