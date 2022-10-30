@@ -9,6 +9,11 @@
     display: block;
 }
 
+.display {
+    display: flex;
+}
+
+#playerOneDisplay,
 
 /* CSS for signSelector fade in/out feature */
 .signSelect {
