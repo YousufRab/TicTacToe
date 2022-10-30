@@ -277,6 +277,7 @@ const gamePlay = (function () {
             }
             hideSelector();
             createPlayers();
+            displayPlayerDetails();
             signO.removeEventListener('click', chooseSignO, {once:true});
             document.getElementById('playerOneName').value = "";
             document.getElementById('playerTwoName').value = "";
@@ -295,6 +296,7 @@ const gamePlay = (function () {
             }
             hideSelector();
             createPlayers();
+            displayPlayerDetails();
             signX.removeEventListener('click', chooseSignX, {once:true}); 
             document.getElementById('playerOneName').value = "";
             document.getElementById('playerTwoName').value = "";
