@@ -144,7 +144,12 @@ const gameBoard = (function () {
         winMessage.classList.remove('victory-hidden');
     })} 
 
-    return {board, sqrClicked, winMessage};
+    const drawMessage = () => {
+        const drawMessage = document.querySelector('.draw');
+        
+    }
+
+    return {board, sqrClicked};
 })();
 
 gameBoard.sqrClicked();
