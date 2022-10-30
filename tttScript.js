@@ -190,6 +190,10 @@ const gamePlay = (function () {
         }
     }
 
+    const hideDrawMessage = () => {
+        
+    }
+
     const clearBoard = () => { 
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
         boardSquares.forEach(square => {
@@ -292,5 +296,5 @@ const player = (playerName, playerSign, playerTurn, playerWin) => {
 
 // Test function
 function testing () {
-    drawMessage();
+    gameBoard.drawMessage();
 }
