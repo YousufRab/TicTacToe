@@ -47,6 +47,11 @@ const gameBoard = (function () {
         })
     }
 
+    const gameStartBtn = () => {
+        let gameStartBtns = Array.from(document.querySelectorAll('.newGame'));
+        
+    }
+
     const checkForWin = () => {
         switch(true) {
             case (sqrOne.innerHTML!="" && sqrOne.innerHTML == sqrTwo.innerHTML && sqrTwo.innerHTML == sqrThree.innerHTML):
