@@ -185,7 +185,13 @@ const gameBoard = (function () {
     }
 
     const playSound = () => {
-        
+        const soundOne = document.getElementById('soundOne');
+        const soundTwo = document.getElementById('soundTwo');
+        if (Math.random() < 0.5) {
+            soundOne.play();
+        } else {
+            soundTwo.play();
+        }
     }
 
     return {board, sqrClicked, gameStartBtn};
@@ -331,7 +337,7 @@ const player = (playerName, playerSign, playerTurn, playerWin) => {
 
 // Test function
 function testing () {
-    gameBoard.drawMessage();
+    console.log(Math.random());
 }
 
 // Call gameBoard functions to give functionality to gameBoard and buttons
