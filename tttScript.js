@@ -225,6 +225,10 @@ const gamePlay = (function () {
             } 
         }
 
+        const openSelectorVsComp = () => {
+            
+        }
+
         const signSelectVsComp = () => {
 
         }
