@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>Tic Tac Toe</header>
-    <button type="button" id="AI" onclick="testing()">Play vs AI</button>
+    <button type="button" id="AI" onclick="gamePlay.playVsComp()">Play vs AI</button>
     <button type="button" class ="newGame">New Game</button>
     <div class="display">        
         <div id="playerOneDisplay">
@@ -53,6 +53,15 @@
             <input type="text" id="playerOneName">
             <label for="playerTwoName">Player two name: </label>
             <input type="text" id="playerTwoName">
+            <span id="X">X</span>
+            <span id="O">O</span>
+        </div>
+    </div>
+    <div class="signSelectVsComp">
+        <div>
+            <p>Player 1, choose your sign!</p>
+            <label for="playerOneName">Player one name: </label>
+            <input type="text" id="playerOneName">
             <span id="X">X</span>
             <span id="O">O</span>
         </div>
