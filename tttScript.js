@@ -211,6 +211,10 @@ const gamePlay = (function () {
         hideDrawMessage();
     }
 
+    const playVsComp = () => {
+        
+    }
+
     const hideWinMessage = () => {
         const winMessage = document.querySelector('.victory');
         if (winMessage.classList.contains('victory-active')) {
