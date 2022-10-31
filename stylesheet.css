@@ -22,6 +22,8 @@
 #playerOneDisplay>div, #playerTwoDisplay>div {
     display: flex;
     align-items: center;
+    width: 150px;
+    justify-content: space-between;
 }
 
 /* CSS for signSelector fade in/out feature */
