@@ -225,6 +225,10 @@ const gamePlay = (function () {
             } 
         }
 
+        const signSelectVsComp = () => {
+
+        }
+
         const createAiPlayer = () => {
             secondPlayer = player('SKYNET AI', 'O', false, false, true);
         }
