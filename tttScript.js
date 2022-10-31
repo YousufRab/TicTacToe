@@ -219,7 +219,7 @@ const gamePlay = (function () {
                 signSelector.classList.remove("signSelect-active");
                 signSelector.classList.add("signSelect-transition");
                 signSelector.classList.add('signSelect-hidden');
-                console.log('hide selector in playVsComp called bro!')
+                console.log('hide selector in playVsComp called bro!');
             } 
         }
 
@@ -354,7 +354,7 @@ const player = (playerName, playerSign, playerTurn, playerWin, compPlayer) => {
     let sign = playerSign;
     let turn = playerTurn;
     let win = playerWin;
-    let compPlayer = compPlayer;
+    let AI = compPlayer;
     return {name, sign, turn, win};
 }
 
