@@ -212,7 +212,24 @@ const gamePlay = (function () {
     }
 
     const playVsComp = () => {
+        const signSelector = document.querySelector('.signSelect');
+
+        const hideSelector = () => {
+            if (signSelector.classList.contains('signSelect-active')) {
+                signSelector.classList.remove("signSelect-active");
+                signSelector.classList.add("signSelect-transition");
+                signSelector.classList.add('signSelect-hidden');
+                console.log('hide selector in playVsComp called bro!')
+            } 
+        }
+
+
         
+        clearBoard();
+        hideWinMessage();
+        hideDrawMessage();
+        hideSelector();
+
     }
 
     const hideWinMessage = () => {
@@ -270,8 +287,8 @@ const gamePlay = (function () {
         const createPlayers = () => {
             const playerOneName = document.getElementById('playerOneName').value;
             const playerTwoName = document.getElementById('playerTwoName').value;
-            firstPlayer = player(playerOneName, player1Sign, true, false);
-            secondPlayer = player(playerTwoName, player2Sign, false, false);
+            firstPlayer = player(playerOneName, player1Sign, true, false, false);
+            secondPlayer = player(playerTwoName, player2Sign, false, false, false);
             return {firstPlayer, secondPlayer};
         }
         const hideSelector = () => {
@@ -328,15 +345,16 @@ const gamePlay = (function () {
         (document.getElementById('playerTwoDisplaySign')).innerHTML = secondPlayer.sign;
     }
 
-    return {newGame};
+    return {newGame, playVsComp};
 })();
 
 // Player object (factory function)
-const player = (playerName, playerSign, playerTurn, playerWin) => {
+const player = (playerName, playerSign, playerTurn, playerWin, compPlayer) => {
     let name = playerName;
     let sign = playerSign;
     let turn = playerTurn;
     let win = playerWin;
+    let compPlayer = compPlayer;
     return {name, sign, turn, win};
 }
 
