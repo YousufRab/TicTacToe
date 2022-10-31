@@ -27,30 +27,30 @@
 }
 
 /* CSS for signSelector fade in/out feature */
-.signSelect {
+.signSelect, .signSelectVsComp {
     display: none;
     opacity: 0;
 }
 
-.signSelect-visible {
+.signSelect-visible, .signSelectVsComp-visible {
     display: block;
 }
 
-.signSelect-active {
-    display: block;
-    opacity: 1;
-}
-
-.signSelect-transition.signSelect-visible {
+.signSelect-active, .signSelectVsComp-active {
     display: block;
     opacity: 1;
 }
 
-.signSelect-transition {
+.signSelect-transition.signSelect-visible, .signSelectVsComp-transition.signSelectVsComp-visible {
+    display: block;
+    opacity: 1;
+}
+
+.signSelect-transition, .signSelectVsComp-transition {
     transition: opacity 1s ease;
 }
 
-.signSelect-hidden {
+.signSelect-hidden, .signSelectVsComp-hidden {
     display: block;
     opacity: 0;
 }
