@@ -205,6 +205,8 @@ const gamePlay = (function () {
     
     const newGame = () => {
         clearBoard();
+        document.getElementById('playerOneName').value = "";
+        document.getElementById('playerTwoName').value = "";
         openSelector();
         playerSignSelect();
         hideWinMessage();
@@ -224,7 +226,7 @@ const gamePlay = (function () {
         }
 
         const createAiPlayer = () => {
-            
+            secondPlayer = player('SKYNET AI', 'O', false, false, true);
         }
 
         clearBoard();
@@ -314,8 +316,6 @@ const gamePlay = (function () {
             createPlayers();
             displayPlayerDetails();
             signO.removeEventListener('click', chooseSignO, {once:true});
-            document.getElementById('playerOneName').value = "";
-            document.getElementById('playerTwoName').value = "";
         }
 
         const chooseSignO = () => {
@@ -333,8 +333,6 @@ const gamePlay = (function () {
             createPlayers();
             displayPlayerDetails();
             signX.removeEventListener('click', chooseSignX, {once:true}); 
-            document.getElementById('playerOneName').value = "";
-            document.getElementById('playerTwoName').value = "";
         }
         signX.addEventListener('click', chooseSignX, {once: true});
         signO.addEventListener('click', chooseSignO, {once:true});  
