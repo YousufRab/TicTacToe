@@ -223,8 +223,10 @@ const gamePlay = (function () {
             } 
         }
 
+        const createAiPlayer = () => {
+            
+        }
 
-        
         clearBoard();
         hideWinMessage();
         hideDrawMessage();
