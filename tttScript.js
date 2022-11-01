@@ -1,5 +1,5 @@
 const gameBoard = (function () {
-    board = [];
+    
     //Assign all squares in html doc to their own variable
     let sqrOne = document.getElementById('1Sqr');
     let sqrTwo = document.getElementById('2Sqr');
@@ -51,8 +51,8 @@ const gameBoard = (function () {
                         square.innerHTML = firstPlayer.sign;
                         gameCounter += 1;
                         console.log("Player vs AI");
-                        firstPlayer.turn = false;
-                        secondPlayer.turn = true;
+                        // firstPlayer.turn = false;
+                        // secondPlayer.turn = true;
                         checkForWin();
                         if(checkForWin()) {
                             winMessage();
@@ -60,16 +60,33 @@ const gameBoard = (function () {
                         }
                         checkForDraw();
                         playSound();
-                    } else if (square.innerHTML == "" && secondPlayer.turn && secondPlayer.AI) {
-                        compTurn();
-                    }
+                        if(!checkForWin()) {
+                            compTurn();
+                            checkForDraw();
+                            checkForWin();
+                        }
+                        
+                    } 
                 }
             })
         })
     }
 
     const compTurn = () => {
-
+        
+        const addEmptySquares = (square) => {
+            if (square.innerHTML == "") {
+                board.push(square);
+            }
+        }
+        
+        board = [];
+        let gameBoardSquares = Array.from(document.querySelectorAll('.boardSqr'));
+        gameBoardSquares.forEach(addEmptySquares);
+        (board[board.length -1 - Math.round(Math.random())]).innerHTML = secondPlayer.sign;
+        console.log(board.length);
+    
+    
     }
 
     const gameStartBtn = () => {
@@ -219,7 +236,7 @@ const gameBoard = (function () {
         }
     }
 
-    return {board, sqrClicked, gameStartBtn};
+    return {sqrClicked, gameStartBtn};
 })();
 
 
