@@ -271,6 +271,10 @@ const gamePlay = (function () {
             signO.removeEventListener('click', chooseSignO, {once:true});
         }
 
+        const chooseSignOVsComp = () => {
+            
+        }
+
         const createAiPlayer = () => {
             let playerOneName = document.getElementById('playerOneNameVsComp').value;
             if (player1Sign == "X") {
