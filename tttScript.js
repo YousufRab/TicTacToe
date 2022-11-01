@@ -18,10 +18,11 @@ const gameBoard = (function () {
         boardSquares.forEach(square => {
             
             square.addEventListener('click', () => {
-                if (gameCounter < 9 && !firstPlayer.win && !secondPlayer.win) {
+                if (gameCounter < 9 && !firstPlayer.win && !secondPlayer.win && !secondPlayer.AI) {
                     if (square.innerHTML == "" && firstPlayer.turn) {
                         square.innerHTML = firstPlayer.sign;
                         gameCounter += 1;
+                        console.log("Player vs player");
                         firstPlayer.turn = false;
                         secondPlayer.turn = true;
                         checkForWin();
@@ -45,8 +46,30 @@ const gameBoard = (function () {
                         playSound();
                     }  
                 }
+                if ((gameCounter < 9 && !firstPlayer.win && !secondPlayer.win && secondPlayer.AI)) {
+                    if (square.innerHTML == "" && firstPlayer.turn) {
+                        square.innerHTML = firstPlayer.sign;
+                        gameCounter += 1;
+                        console.log("Player vs AI");
+                        firstPlayer.turn = false;
+                        secondPlayer.turn = true;
+                        checkForWin();
+                        if(checkForWin()) {
+                            winMessage();
+                            gameCounter = 0;
+                        }
+                        checkForDraw();
+                        playSound();
+                    } else if (square.innerHTML == "" && secondPlayer.turn) {
+                        compTurn();
+                    }
+                }
             })
         })
+    }
+
+    const compTurn = () => {
+        
     }
 
     const gameStartBtn = () => {
@@ -298,7 +321,6 @@ const gamePlay = (function () {
             
         }
 
-
         clearBoard();
         hideWinMessage();
         hideDrawMessage();
@@ -428,7 +450,7 @@ const player = (playerName, playerSign, playerTurn, playerWin, compPlayer) => {
     let turn = playerTurn;
     let win = playerWin;
     let AI = compPlayer;
-    return {name, sign, turn, win};
+    return {name, sign, turn, win, AI};
 }
 
 
