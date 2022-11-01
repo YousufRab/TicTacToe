@@ -60,7 +60,7 @@ const gameBoard = (function () {
                         }
                         checkForDraw();
                         playSound();
-                    } else if (square.innerHTML == "" && secondPlayer.turn) {
+                    } else if (square.innerHTML == "" && secondPlayer.turn && secondPlayer.AI) {
                         compTurn();
                     }
                 }
@@ -69,7 +69,7 @@ const gameBoard = (function () {
     }
 
     const compTurn = () => {
-        
+
     }
 
     const gameStartBtn = () => {
@@ -316,7 +316,7 @@ const gamePlay = (function () {
                 secondPlayer = player('SKYNET AI', 'O', false, false, true);
             } else { 
                 firstPlayer = player(playerOneName, 'O', true, false, false);
-                secondPlayer = player('SKYNET AI', 'X', false, false, false);
+                secondPlayer = player('SKYNET AI', 'X', false, false, true);
             }
             
         }
