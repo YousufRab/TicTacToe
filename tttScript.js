@@ -214,7 +214,7 @@ const gamePlay = (function () {
     }
 
     const playVsComp = () => {
-        const signSelector = document.querySelector('.signSelect');
+        const signSelector = document.querySelector('.signSelectVsComp');
 
         const hideSelector = () => {
             if (signSelector.classList.contains('signSelect-active')) {
@@ -226,8 +226,26 @@ const gamePlay = (function () {
         }
 
         const openSelectorVsComp = () => {
-            
+            const signSelectorVsComp = document.querySelector('.signSelectVsComp');
+            if (signSelectorVsComp.classList.contains("signSelect-active")) {
+            //hide
+            signSelectorVsComp.classList.remove("signSelect-active");
+            signSelectorVsComp.classList.add("signSelect-transition");
+            signSelectorVsComp.classList.add('signSelect-hidden');
+        } else {
+            //show
+            signSelectorVsComp.classList.add('signSelect-visible');
+            signSelectorVsComp.clientWidth;
+            signSelectorVsComp.classList.add('signSelect-transition');
+            signSelectorVsComp.classList.add('signSelect-active');
         }
+            signSelectorVsComp.addEventListener('transitionend', function () {
+            signSelectorVsComp.classList.remove('signSelect-transition');
+            signSelectorVsComp.classList.remove('signSelect-visible');
+            signSelectorVsComp.classList.remove('signSelect-hidden');
+    })} 
+
+        
 
         const signSelectVsComp = () => {
 
