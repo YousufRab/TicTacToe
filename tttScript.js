@@ -254,7 +254,6 @@ const gamePlay = (function () {
             signSelectorVsComp.classList.remove('signSelectVsComp-visible');
             signSelectorVsComp.classList.remove('signSelectVsComp-hidden');
     })} 
-
         
 
         const chooseSignXVsComp = () => {
@@ -267,10 +266,21 @@ const gamePlay = (function () {
                 return;            
             }
             hideSelectorVsComp();
+            createAiPlayer();
+            displayPlayerDetails();
+            signO.removeEventListener('click', chooseSignO, {once:true});
         }
 
         const createAiPlayer = () => {
-            secondPlayer = player('SKYNET AI', 'O', false, false, true);
+            let playerOneName = document.getElementById('playerOneNameVsComp').value;
+            if (player1Sign == "X") {
+                firstPlayer = player(playerOneName, 'X', true, false, false);
+                secondPlayer = player('SKYNET AI', 'O', false, false, true);
+            } else { 
+                firstPlayer = player(playerOneName, 'O', true, false, false);
+                secondPlayer = player('SKYNET AI', 'X', false, false, false);
+            }
+            
         }
 
 
