@@ -227,22 +227,22 @@ const gamePlay = (function () {
 
         const openSelectorVsComp = () => {
             const signSelectorVsComp = document.querySelector('.signSelectVsComp');
-            if (signSelectorVsComp.classList.contains("signSelect-active")) {
+            if (signSelectorVsComp.classList.contains("signSelectVsComp-active")) {
             //hide
-            signSelectorVsComp.classList.remove("signSelect-active");
-            signSelectorVsComp.classList.add("signSelect-transition");
-            signSelectorVsComp.classList.add('signSelect-hidden');
+            signSelectorVsComp.classList.remove("signSelectVsComp-active");
+            signSelectorVsComp.classList.add("signSelectVsComp-transition");
+            signSelectorVsComp.classList.add('signSelectVsComp-hidden');
         } else {
             //show
-            signSelectorVsComp.classList.add('signSelect-visible');
+            signSelectorVsComp.classList.add('signSelectVsComp-visible');
             signSelectorVsComp.clientWidth;
-            signSelectorVsComp.classList.add('signSelect-transition');
-            signSelectorVsComp.classList.add('signSelect-active');
+            signSelectorVsComp.classList.add('signSelectVsComp-transition');
+            signSelectorVsComp.classList.add('signSelectVsComp-active');
         }
             signSelectorVsComp.addEventListener('transitionend', function () {
-            signSelectorVsComp.classList.remove('signSelect-transition');
-            signSelectorVsComp.classList.remove('signSelect-visible');
-            signSelectorVsComp.classList.remove('signSelect-hidden');
+            signSelectorVsComp.classList.remove('signSelectVsComp-transition');
+            signSelectorVsComp.classList.remove('signSelectVsComp-visible');
+            signSelectorVsComp.classList.remove('signSelectVsComp-hidden');
     })} 
 
         
@@ -259,6 +259,7 @@ const gamePlay = (function () {
         hideWinMessage();
         hideDrawMessage();
         hideSelector();
+        openSelectorVsComp();
 
     }
 
