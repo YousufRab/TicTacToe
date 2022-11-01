@@ -268,11 +268,22 @@ const gamePlay = (function () {
             hideSelectorVsComp();
             createAiPlayer();
             displayPlayerDetails();
-            signO.removeEventListener('click', chooseSignO, {once:true});
+            signO.removeEventListener('click', chooseSignOVsComp, {once:true});
         }
 
         const chooseSignOVsComp = () => {
-            
+            player1Sign = "O";
+            player2Sign = "X";
+            const playerOneName = document.getElementById('playerOneNameVsComp').value;
+            if (playerOneName == "") {
+                alert("Please enter player names");
+                signO.addEventListener('click', chooseSignOVsComp, {once: true});
+                return;            
+            }
+            hideSelectorVsComp();
+            createAiPlayer();
+            displayPlayerDetails();
+            signX.removeEventListener('click', chooseSignXVsComp, {once:true});
         }
 
         const createAiPlayer = () => {
@@ -293,7 +304,7 @@ const gamePlay = (function () {
         hideDrawMessage();
         hideSelector();
         signX.addEventListener('click', chooseSignXVsComp, {once: true});
-        // signO.addEventListener('click', chooseSignOVsComp, {once:true});  
+        signO.addEventListener('click', chooseSignOVsComp, {once:true});  
         openSelectorVsComp();
 
     }
