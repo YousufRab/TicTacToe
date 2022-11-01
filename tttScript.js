@@ -215,15 +215,25 @@ const gamePlay = (function () {
 
     const playVsComp = () => {
         const signSelector = document.querySelector('.signSelectVsComp');
+        const signX = document.getElementById('XComp');
+        const signO = document.getElementById('OComp');
 
         const hideSelector = () => {
+            const signSelector = document.querySelector('.signSelect');
             if (signSelector.classList.contains('signSelect-active')) {
                 signSelector.classList.remove("signSelect-active");
                 signSelector.classList.add("signSelect-transition");
                 signSelector.classList.add('signSelect-hidden');
-                console.log('hide selector in playVsComp called bro!');
             } 
         }
+
+        const hideSelectorVsComp = () => {
+            if (signSelector.classList.contains('signSelectVsComp-active')) {
+                signSelector.classList.remove("signSelectVsComp-active");
+                signSelector.classList.add("signSelectVsComp-transition");
+                signSelector.classList.add('signSelectVsComp-hidden');
+            } 
+        }        
 
         const openSelectorVsComp = () => {
             const signSelectorVsComp = document.querySelector('.signSelectVsComp');
@@ -247,18 +257,29 @@ const gamePlay = (function () {
 
         
 
-        const signSelectVsComp = () => {
-
+        const chooseSignXVsComp = () => {
+            player1Sign = "X";
+            player2Sign = "O";
+            const playerOneName = document.getElementById('playerOneNameVsComp').value;
+            if (playerOneName == "") {
+                alert("Please enter player names");
+                signX.addEventListener('click', chooseSignXVsComp, {once: true});
+                return;            
+            }
+            hideSelectorVsComp();
         }
 
         const createAiPlayer = () => {
             secondPlayer = player('SKYNET AI', 'O', false, false, true);
         }
 
+
         clearBoard();
         hideWinMessage();
         hideDrawMessage();
         hideSelector();
+        signX.addEventListener('click', chooseSignXVsComp, {once: true});
+        // signO.addEventListener('click', chooseSignOVsComp, {once:true});  
         openSelectorVsComp();
 
     }
