@@ -18,6 +18,11 @@
     border-top: 1px solid transparent;
 }
 
+.board > div:nth-child(3) {
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+
 .display {
     display: flex;
     justify-content: space-around;
