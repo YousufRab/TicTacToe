@@ -16,8 +16,8 @@ header {
     border: 1px solid black;
     display: block;
     text-align: center;
-    padding: 35% 0;
-    font-size: 30px;
+    padding: 25% 0;
+    font-size: 40px;
 }
 
 .board > div:nth-child(1) {
@@ -60,6 +60,7 @@ header {
 .display {
     display: flex;
     justify-content: space-around;
+    font-family: 'Fredericka the Great', cursive, sans-serif;
 }
 
 #playerOneDisplay, #playerTwoDisplay {
@@ -70,7 +71,8 @@ header {
 #playerOneDisplay>div, #playerTwoDisplay>div {
     display: flex;
     align-items: center;
-    width: 150px;
+    width: 180px;
+    font-weight: 600;
     justify-content: space-between;
 }
 
