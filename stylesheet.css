@@ -9,6 +9,15 @@
     display: block;
 }
 
+.board > div:nth-child(1) {
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+}
+
+.board > div:nth-child(2) {
+    border-top: 1px solid transparent;
+}
+
 .display {
     display: flex;
     justify-content: space-around;
