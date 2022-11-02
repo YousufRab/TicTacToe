@@ -82,12 +82,11 @@ const gameBoard = (function () {
                 board.push(square);
             }
         }
-        
         board = [];
         let gameBoardSquares = Array.from(document.querySelectorAll('.boardSqr'));
         gameBoardSquares.forEach(addEmptySquares);
-        (board[board.length -1 - Math.round(Math.random())]).innerHTML = secondPlayer.sign;
-        console.log(board.length);
+        (board[Math.round(Math.random() * board.length)]).innerHTML = secondPlayer.sign;
+        console.log(Math.round(Math.random() * board.length));
     
     
     }
