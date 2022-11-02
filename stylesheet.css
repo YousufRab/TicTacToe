@@ -22,6 +22,9 @@ header {
     font-family: 'Fredericka the Great', cursive, sans-serif;
     font-weight: 600;
     letter-spacing: 1px;
+    background-color: #E8A87C;
+    border: 1px solid black;
+    border-radius: 12px;
 }
 
 .board {
