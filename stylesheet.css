@@ -17,6 +17,11 @@ header {
     margin-top: 35px;
 }
 
+.signSelect > div {
+    display: flex;
+    flex-direction: column;
+}
+
 .btnContainer > button {
     width: 150px;
     height: 40px;
@@ -30,10 +35,13 @@ header {
 
 .btnContainer > button:hover {
     background-color: #E27D60;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
-
+.btnContainer > button:active {
+    background-color: #C38D9E;
+    border: 2px solid white;
+}
 
 .board {
     display: grid;
@@ -122,6 +130,10 @@ header {
     font-family: 'Fredericka the Great', cursive, sans-serif;
     font-weight: 600;
     letter-spacing: 1px;
+    position: absolute;
+    top: 350px;
+    background-color: #49c5b6;
+    border: 1px solid black;
 }
 
 .signSelect-visible, .signSelectVsComp-visible {
