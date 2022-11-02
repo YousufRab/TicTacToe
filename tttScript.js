@@ -63,7 +63,10 @@ const gameBoard = (function () {
                         if(!checkForWin()) {
                             compTurn();
                             checkForDraw();
-                            checkForWin();
+                            if(checkForWin()) {
+                                winMessage();
+                                gameCounter = 0;
+                            };
                         }
                         
                     } 
