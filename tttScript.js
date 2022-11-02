@@ -61,6 +61,7 @@ const gameBoard = (function () {
                         if(!checkForWin()) {
                             // Set 700 millisecond delay for compTurn function to run
                             setTimeout(()=> {compTurn();}, 700);
+                            gameCounter += 1;
                             setTimeout(() => {firstPlayer.turn = true;}, 750);
                             checkForDraw();
                             if(checkForWin()) {
@@ -461,13 +462,14 @@ const gamePlay = (function () {
 })();
 
 // Player object (factory function)
-const player = (playerName, playerSign, playerTurn, playerWin, compPlayer) => {
+const player = (playerName, playerSign, playerTurn, playerWin, compPlayer, compDifficulty) => {
     let name = playerName;
     let sign = playerSign;
     let turn = playerTurn;
     let win = playerWin;
     let AI = compPlayer;
-    return {name, sign, turn, win, AI};
+    let difficulty = compDifficulty;
+    return {name, sign, turn, win, AI, difficulty};
 }
 
 
