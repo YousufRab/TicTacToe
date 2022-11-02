@@ -1,19 +1,23 @@
 header {
     text-align:center;
+    font-family: 'Fredericka the Great', cursive, sans-serif;
+    font-size: 36px;
 }
 
 .board {
     display: grid;
-    grid-template-rows: 100px 100px 100px;
-    grid-template-columns: 50px 50px 50px;
+    grid-template-rows: 90px 90px 90px;
+    grid-template-columns: 80px 80px 80px;
     justify-content: center;
+    font-family: 'Bungee Inline', cursive;
 }
 
 .board > div {
     border: 1px solid black;
     display: block;
     text-align: center;
-    padding: 80% 0;
+    padding: 35% 0;
+    font-size: 30px;
 }
 
 .board > div:nth-child(1) {
@@ -32,6 +36,7 @@ header {
 
 .board > div:nth-child(4) {
     border-left: 1px solid transparent;
+    
 }
 
 .board > div:nth-child(6) {
