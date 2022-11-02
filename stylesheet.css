@@ -40,7 +40,10 @@
     border-bottom: 1px solid transparent;
 }
 
-.board > div:nth-child(9)
+.board > div:nth-child(9) {
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+}
 
 
 
