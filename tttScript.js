@@ -239,7 +239,7 @@ const gameBoard = (function () {
         }
     }
 
-    return {sqrClicked, gameStartBtn};
+    return {sqrClicked, gameStartBtn, gameCounter};
 })();
 
 
@@ -340,7 +340,7 @@ const gamePlay = (function () {
             }
             
         }
-
+        gameBoard.gameCounter = 0;
         clearBoard();
         hideWinMessage();
         hideDrawMessage();
