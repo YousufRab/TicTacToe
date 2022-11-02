@@ -11,6 +11,11 @@ header {
     font-size: 36px;
 }
 
+.btnContainer {
+    margin-bottom: 35px;
+    margin-top: 10px;
+}
+
 .board {
     display: grid;
     grid-template-rows: 90px 90px 90px;
