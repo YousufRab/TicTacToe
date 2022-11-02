@@ -69,6 +69,7 @@ header {
     background-color: #C38D9E;
     margin-bottom: 20px;
     border-radius: 16px;
+    letter-spacing: 1px;
 }
 
 #playerOneDisplay, #playerTwoDisplay {
@@ -88,6 +89,9 @@ header {
 .signSelect, .signSelectVsComp {
     display: none;
     opacity: 0;
+    font-family: 'Fredericka the Great', cursive, sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .signSelect-visible, .signSelectVsComp-visible {
@@ -118,6 +122,9 @@ header {
 .victory {
     display: none;
     opacity: 0;
+    font-family: 'Fredericka the Great', cursive, sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .victory-visible {
