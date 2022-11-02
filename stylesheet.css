@@ -31,6 +31,19 @@
     border-right: 1px solid transparent;
 }
 
+.board > div:nth-child(7) {
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+}
+
+.board > div:nth-child(8) {
+    border-bottom: 1px solid transparent;
+}
+
+.board > div:nth-child(9)
+
+
+
 .display {
     display: flex;
     justify-content: space-around;
