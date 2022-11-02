@@ -51,6 +51,7 @@ const gameBoard = (function () {
                         square.innerHTML = firstPlayer.sign;
                         gameCounter += 1;
                         console.log("Player vs AI");
+                        firstPlayer.turn = false;
                         if(checkForWin()) {
                             winMessage();
                             gameCounter = 0;
@@ -60,6 +61,7 @@ const gameBoard = (function () {
                         if(!checkForWin()) {
                             // Set 700 millisecond delay for compTurn function to run
                             setTimeout(()=> {compTurn();}, 700);
+                            setTimeout(() => {firstPlayer.turn = true;}, 750);
                             checkForDraw();
                             if(checkForWin()) {
                                 winMessage();
