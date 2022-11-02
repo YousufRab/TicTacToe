@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./stylesheet.css">
     <script src="./tttScript.js" defer></script>
-    
     <title>Tic Tac Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Fredericka+the+Great&display=swap" rel="stylesheet">
 </head>
 <body>
     <header><h1>Tic Tac Toe</h1></header>
-    <button type="button" id="AI" class="newGameAI" onclick="gamePlay.playVsComp()">Play vs AI</button>
-    <button type="button" class ="newGame">New Game</button>
+    <div class="btnContainer">
+        <button type="button" id="AI" class="newGameAI" onclick="gamePlay.playVsComp()">Play vs AI</button>
+        <button type="button" class ="newGame">New Game</button>
+    </div>
     <div class="display">        
         <div id="playerOneDisplay">
             <div>
