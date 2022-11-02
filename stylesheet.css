@@ -1,3 +1,7 @@
+header {
+    text-align:center;
+}
+
 .board {
     display: grid;
     grid-template-rows: 100px 100px 100px;
