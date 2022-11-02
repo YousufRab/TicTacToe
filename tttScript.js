@@ -64,10 +64,12 @@ const gameBoard = (function () {
                             gameCounter += 1;
                             setTimeout(() => {firstPlayer.turn = true;}, 750);
                             checkForDraw();
-                            if(checkForWin()) {
-                                winMessage();
-                                gameCounter = 0;
-                            };
+                            setTimeout(() => {
+                                if (checkForWin()) {
+                                    winMessage();
+                                    gameCounter = 0;
+                                }
+                            }, 760);
                         }
                         
                     } 
