@@ -58,6 +58,7 @@ const gameBoard = (function () {
                         checkForDraw();
                         playSound();
                         if(!checkForWin()) {
+                            // Set 700 millisecond delay for compTurn function to run
                             setTimeout(()=> {compTurn();}, 700);
                             checkForDraw();
                             if(checkForWin()) {
@@ -82,8 +83,8 @@ const gameBoard = (function () {
         }
         let gameBoardSquares = Array.from(document.querySelectorAll('.boardSqr'));
         gameBoardSquares.forEach(addEmptySquares);
-        (board[Math.round(Math.random() * board.length)]).innerHTML = secondPlayer.sign;
-        console.log(Math.round(Math.random() * board.length));
+        (board[Math.floor(Math.random() * board.length)]).innerHTML = secondPlayer.sign;
+        console.log(Math.floor(Math.random() * board.length));
     }
 
     const gameStartBtn = () => {
