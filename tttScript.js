@@ -51,9 +51,6 @@ const gameBoard = (function () {
                         square.innerHTML = firstPlayer.sign;
                         gameCounter += 1;
                         console.log("Player vs AI");
-                        // firstPlayer.turn = false;
-                        // secondPlayer.turn = true;
-                        checkForWin();
                         if(checkForWin()) {
                             winMessage();
                             gameCounter = 0;
@@ -61,7 +58,7 @@ const gameBoard = (function () {
                         checkForDraw();
                         playSound();
                         if(!checkForWin()) {
-                            compTurn();
+                            setTimeout(()=> {compTurn();}, 700);
                             checkForDraw();
                             if(checkForWin()) {
                                 winMessage();
@@ -76,19 +73,17 @@ const gameBoard = (function () {
     }
 
     const compTurn = () => {
-        
+
+        board = [];
         const addEmptySquares = (square) => {
             if (square.innerHTML == "") {
                 board.push(square);
             }
         }
-        board = [];
         let gameBoardSquares = Array.from(document.querySelectorAll('.boardSqr'));
         gameBoardSquares.forEach(addEmptySquares);
         (board[Math.round(Math.random() * board.length)]).innerHTML = secondPlayer.sign;
         console.log(Math.round(Math.random() * board.length));
-    
-    
     }
 
     const gameStartBtn = () => {
