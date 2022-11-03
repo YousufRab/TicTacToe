@@ -241,7 +241,7 @@ const gameBoard = (function () {
         }
     }
 
-    return {sqrClicked, gameStartBtn, gameCounter};
+    return {sqrClicked, gameStartBtn, drawMessage, gameCounter};
 })();
 
 
@@ -358,6 +358,7 @@ const gamePlay = (function () {
         if (winMessage.classList.contains('victory-active')) {
                 winMessage.classList.remove("victory-active");
                 winMessage.classList.add("victory-transition");
+                winMessage.classList.remove('victory-visible');
                 winMessage.classList.add('victory-hidden');
         }
     }
@@ -367,7 +368,9 @@ const gamePlay = (function () {
         if (drawMessage.classList.contains('draw-active')) {
                 drawMessage.classList.remove("draw-active");
                 drawMessage.classList.add("draw-transition");
+                drawMessage.classList.remove('draw-visible');
                 drawMessage.classList.add('draw-hidden');
+                
         }
     }
 
