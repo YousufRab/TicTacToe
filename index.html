@@ -58,8 +58,10 @@
             <input type="text" id="playerOneName">
             <label for="playerTwoName">Player two name: </label>
             <input type="text" id="playerTwoName">
-            <span id="X">X</span>
-            <span id="O">O</span>
+            <div class="choiceContainer">
+                <span id="X">X</span>
+                <span id="O">O</span>
+            </div>
         </div>
     </div>
     <div class="signSelectVsComp">
@@ -67,8 +69,10 @@
             <label for="playerOneNameVsComp">Player one name: </label>
             <input type="text" id="playerOneNameVsComp">
             <p>Player 1, choose your sign!</p>
-            <span id="XComp">X</span>
-            <span id="OComp">O</span>
+            <div class="choiceContainer">
+                <span id="XComp">X</span>
+                <span id="OComp">O</span>
+            </div>
         </div>
     </div>
     <div class="victory">
@@ -80,8 +84,6 @@
     </div>
     <div class="draw">
         <p>It's a tie! Click the new game button to play again</p>
-        <button type="button" class="newGame">New Game</button>
-        <button type="button" id="AI" class="newGameAI" onclick="gamePlay.playVsComp()">Play vs AI</button>
     </div>
     
     <audio src="./kick.wav" id="soundOne"></audio>
