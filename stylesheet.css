@@ -123,6 +123,11 @@ header {
     justify-content: space-between;
 }
 
+.choiceContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* CSS for signSelector fade in/out feature */
 .signSelect, .signSelectVsComp {
     display: none;
