@@ -256,6 +256,7 @@ const gamePlay = (function () {
         playerSignSelect();
         hideWinMessage();
         hideDrawMessage();
+        gameBoard.gameCounter = 0;
     }
 
     const playVsComp = () => {
@@ -350,7 +351,7 @@ const gamePlay = (function () {
         signX.addEventListener('click', chooseSignXVsComp, {once: true});
         signO.addEventListener('click', chooseSignOVsComp, {once:true});  
         openSelectorVsComp();
-
+        gameBoard.gameCounter = 0;
     }
 
     const hideWinMessage = () => {
