@@ -125,7 +125,11 @@ header {
 
 .choiceContainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.choiceContainer > span {
+    font-size: 34px;
 }
 
 /* CSS for signSelector fade in/out feature */
