@@ -3,6 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 98vh;
 }
 
 header {
@@ -210,7 +211,7 @@ header {
 
 /* CSS for victory message fade in/out feature */
 
-.victory {
+.victory, .draw {
     display: none;
     opacity: 0;
     font-family: 'Fredericka the Great', cursive, sans-serif;
@@ -269,4 +270,18 @@ header {
 .draw-hidden {
     display: block;
     opacity: 0;
+}
+
+footer {
+    font-family: 'Fredericka the Great', cursive, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    margin-top: auto;
+}
+
+#gitImg {
+    height: 16px;
+    background-color: transparent;
 }
