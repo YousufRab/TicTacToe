@@ -34,6 +34,10 @@ header {
     border-radius: 12px;
 }
 
+.btnContainer > button:nth-child(1) {
+    margin-right: 25px;
+}
+
 .btnContainer > button:hover {
     background-color: #E27D60;
     transition: 0.3s;
