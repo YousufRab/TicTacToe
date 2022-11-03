@@ -134,8 +134,8 @@ header {
     font-size: 34px;
     text-align: center;
     width: 40px;
-    margin-top: 12px;
-    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
     transition: 0.3s;
 }
 
@@ -152,6 +152,21 @@ header {
     background-color: white;
 }
 
+.signSelectVsComp > div {
+    padding-top: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.signSelectVsComp > div > input, .signSelect>div>input {
+    height: 22px;
+    border: white;
+    border-radius: 12px;
+    padding-left: 10px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+
 /* CSS for signSelector fade in/out feature */
 .signSelect, .signSelectVsComp {
     display: none;
@@ -163,10 +178,11 @@ header {
     top: 350px;
     background-color: #49c5b6;
     border: 1px solid black;
+    border-radius: 8px;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 0px;
-    height: 220px;
+    height: 235px;
 }
 
 .signSelect-visible, .signSelectVsComp-visible {
