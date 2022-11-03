@@ -145,6 +145,13 @@ header {
     border-radius: 35%;
 }
 
+.choiceContainer > span:active {
+    color: black;
+    border: 2px solid black;
+    border-radius: 35%;
+    background-color: white;
+}
+
 /* CSS for signSelector fade in/out feature */
 .signSelect, .signSelectVsComp {
     display: none;
