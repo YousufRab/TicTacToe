@@ -186,25 +186,25 @@ header {
     height: 235px;
 }
 
-.signSelect-visible, .signSelectVsComp-visible {
+.signSelect-visible, .signSelectVsComp-visible, .draw-visible, .victory-visible {
     display: block;
 }
 
-.signSelect-active, .signSelectVsComp-active {
-    display: block;
-    opacity: 1;
-}
-
-.signSelect-transition.signSelect-visible, .signSelectVsComp-transition.signSelectVsComp-visible {
+.signSelect-active, .signSelectVsComp-active, .draw-active, .victory-active {
     display: block;
     opacity: 1;
 }
 
-.signSelect-transition, .signSelectVsComp-transition {
+.signSelect-transition.signSelect-visible, .signSelectVsComp-transition.signSelectVsComp-visible, .draw-transition.draw-visible, .victory-transition.victory-visible {
+    display: block;
+    opacity: 1;
+}
+
+.signSelect-transition, .signSelectVsComp-transition, .victory-transition {
     transition: opacity 1s ease;
 }
 
-.signSelect-hidden, .signSelectVsComp-hidden {
+.signSelect-hidden, .signSelectVsComp-hidden , .draw-hidden, .victory-hidden{
     display: block;
     opacity: 0;
 }
@@ -219,57 +219,8 @@ header {
     letter-spacing: 1px;
 }
 
-.victory-visible {
-    display: block;
-}
-
-.victory-active {
-    display: block;
-    opacity: 1;
-}
-
-.victory-transition.victory-visible {
-    display: block;
-    opacity: 1;
-}
-
-.victory-transition {
-    transition: opacity 1s ease;
-}
-
-.victory-hidden {
-    display: block;
-    opacity: 0;
-}
-
-/* CSS for creating fade in/out effect for draw/tie message */
-
-.draw {
-    display: none;
-    opacity: 0;
-}
-
-.draw-visible {
-    display: block;
-}
-
-.draw-active {
-    display: block;
-    opacity: 1;
-}
-
-.draw-transition.draw-visible {
-    display: block;
-    opacity: 1;
-}
-
 .draw-transition {
     transition: opacity 0.7s ease;
-}
-
-.draw-hidden {
-    display: block;
-    opacity: 0;
 }
 
 footer {
@@ -277,8 +228,11 @@ footer {
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 1px;
-    text-decoration: none;
     margin-top: auto;
+}
+
+footer > a {
+    text-decoration: none;
 }
 
 #gitImg {
