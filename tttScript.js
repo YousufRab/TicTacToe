@@ -232,6 +232,8 @@ const gameBoard = (function () {
     const playSound = () => {
         const soundOne = document.getElementById('soundOne');
         const soundTwo = document.getElementById('soundTwo');
+        soundOne.volume = 0.2;
+        soundTwo.volume = 0.2;
         if (Math.random() < 0.5) {
             soundOne.play();
         } else {
