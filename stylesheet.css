@@ -223,6 +223,10 @@ header {
     letter-spacing: 1px;
 }
 
+#winner {
+    text-align: center;
+}
+
 .draw-transition {
     transition: opacity 0.7s ease;
 }
