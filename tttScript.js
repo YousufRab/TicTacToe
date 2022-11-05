@@ -336,10 +336,10 @@ const gamePlay = (function () {
             let playerOneName = document.getElementById('playerOneNameVsComp').value;
             if (player1Sign == "X") {
                 firstPlayer = player(playerOneName, 'X', true, false, false);
-                secondPlayer = player('SKYNET AI', 'O', false, false, true);
+                secondPlayer = player('SKYNET AI', 'O', false, false, true, 'easy');
             } else { 
                 firstPlayer = player(playerOneName, 'O', true, false, false);
-                secondPlayer = player('SKYNET AI', 'X', false, false, true);
+                secondPlayer = player('SKYNET AI', 'X', false, false, true, 'easy');
             }
             
         }
