@@ -97,12 +97,26 @@ const gameBoard = (function () {
         function checkEmptySqr(square) {
             return square.innerHTML != "O" && square.innerHTML !="X";
         }
-        return boardSquares.filter(checkEmptySqr);
+        console.log(boardSquares.filter(checkEmptySqr));
+        emptySquareIndexies = []
+        function findIndex(object) {
+            
+            switch (object.id) {
+                case ('1Sqr'):
+                    emptySquareIndexies.push(0);
+                    break;
+                case('2Sqr'):
+                    emptySquareIndexies.push(1);
+                    break;
+                case('3Sqr'):
+                    emptySquareIndexies.push(2);
+
+            }
+        }
         
     }
 
     const compTurnHard = () => {
-        let origBoard = []
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
 
         function winning(boardSquares, playerSign) {
@@ -120,6 +134,18 @@ const gameBoard = (function () {
                 } else {
                     return false;
                 }
+        }
+
+        function miniMax(newBoard, player) {
+            var availSpots = emptyIndexies(newBoard);
+
+            if (winning(newBoard, firstPlayer.sign)) {
+                return {score: -10};
+            } else if (winning(newBoard, secondPlayer.sign)) {
+                return {score: 10};
+            } else if (availSpots.length == 0) {
+                return {score: 0};
+            }
         }
         
     }
