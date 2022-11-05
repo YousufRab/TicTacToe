@@ -97,7 +97,6 @@ const gameBoard = (function () {
         function checkEmptySqr(square) {
             return square.innerHTML != "O" && square.innerHTML !="X";
         }
-        console.log(boardSquares.filter(checkEmptySqr));
         return boardSquares.filter(checkEmptySqr);
         
     }
@@ -105,8 +104,23 @@ const gameBoard = (function () {
     const compTurnHard = () => {
         let origBoard = []
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
-        
 
+        function winning(boardSquares, playerSign) {
+            if (
+                (boardSquares[0].innerHTML == playerSign && boardSquares[1].innerHTML == playerSign && boardSquares[2].innerHTML == playerSign) ||
+                (boardSquares[3].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[5].innerHTML == playerSign) ||
+                (boardSquares[6].innerHTML == playerSign && boardSquares[7].innerHTML == playerSign && boardSquares[8].innerHTML == playerSign) ||
+                (boardSquares[0].innerHTML == playerSign && boardSquares[3].innerHTML == playerSign && boardSquares[6].innerHTML == playerSign) ||
+                (boardSquares[1].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[7].innerHTML == playerSign) ||
+                (boardSquares[2].innerHTML == playerSign && boardSquares[5].innerHTML == playerSign && boardSquares[8].innerHTML == playerSign) ||
+                (boardSquares[0].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[8].innerHTML == playerSign) ||
+                (boardSquares[2].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[6].innerHTML == playerSign)
+                ) {
+                    return true;
+                } else {
+                    return false;
+                }
+        }
         
     }
 
