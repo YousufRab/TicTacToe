@@ -22,7 +22,6 @@ const gameBoard = (function () {
                     if (square.innerHTML == "" && firstPlayer.turn) {
                         square.innerHTML = firstPlayer.sign;
                         gameCounter += 1;
-                        console.log("Player vs player");
                         firstPlayer.turn = false;
                         secondPlayer.turn = true;
                         checkForWin();
@@ -50,7 +49,6 @@ const gameBoard = (function () {
                     if (square.innerHTML == "" && firstPlayer.turn) {
                         square.innerHTML = firstPlayer.sign;
                         gameCounter += 1;
-                        console.log("Player vs AI");
                         firstPlayer.turn = false;
                         if(checkForWin()) {
                             winMessage();
@@ -89,7 +87,6 @@ const gameBoard = (function () {
         let gameBoardSquares = Array.from(document.querySelectorAll('.boardSqr'));
         gameBoardSquares.forEach(addEmptySquares);
         (board[Math.floor(Math.random() * board.length)]).innerHTML = secondPlayer.sign;
-        console.log(Math.floor(Math.random() * board.length));
     }
 
     const emptyIndexies = () => {
@@ -97,8 +94,10 @@ const gameBoard = (function () {
         function checkEmptySqr(square) {
             return square.innerHTML != "O" && square.innerHTML !="X";
         }
-        console.log(boardSquares.filter(checkEmptySqr));
+        let emptySquares = boardSquares.filter(checkEmptySqr);
         emptySquareIndexies = []
+
+        emptySquares.forEach(findIndex);
         function findIndex(object) {
             
             switch (object.id) {
@@ -110,10 +109,29 @@ const gameBoard = (function () {
                     break;
                 case('3Sqr'):
                     emptySquareIndexies.push(2);
-
+                    break;
+                case('4Sqr'):
+                    emptySquareIndexies.push(3);
+                    break;
+                case('5Sqr'):
+                    emptySquareIndexies.push(4);
+                    break;
+                case('6Sqr'):
+                    emptySquareIndexies.push(5);
+                    break;
+                case('7Sqr'):
+                    emptySquareIndexies.push(6);
+                    break;
+                case('8Sqr'):
+                    emptySquareIndexies.push(7);
+                    break;
+                case('9Sqr'):
+                    emptySquareIndexies.push(8)
+                    break;
             }
         }
-        
+        console.log(emptySquareIndexies);
+        return emptySquareIndexies;
     }
 
     const compTurnHard = () => {
