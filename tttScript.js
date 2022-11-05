@@ -92,6 +92,10 @@ const gameBoard = (function () {
         console.log(Math.floor(Math.random() * board.length));
     }
 
+    const compTurnHard = () => {
+        
+    }
+
     const gameStartBtn = () => {
         let gameStartBtns = Array.from(document.querySelectorAll('.newGame'));
         gameStartBtns.forEach( button => {
