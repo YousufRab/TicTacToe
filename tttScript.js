@@ -45,7 +45,7 @@ const gameBoard = (function () {
                         playSound();
                     }  
                 }
-                if ((gameCounter < 9 && !firstPlayer.win && !secondPlayer.win && secondPlayer.AI)) {
+                if ((gameCounter < 9 && !firstPlayer.win && !secondPlayer.win && secondPlayer.AI && secondPlayer.difficulty == 'easy')) {
                     if (square.innerHTML == "" && firstPlayer.turn) {
                         square.innerHTML = firstPlayer.sign;
                         gameCounter += 1;
@@ -164,6 +164,44 @@ const gameBoard = (function () {
             } else if (availSpots.length == 0) {
                 return {score: 0};
             }
+
+            var moves = [];
+            for (var i = 0; i < availSpots.length; i++) {
+                var move = {};
+                move.index = newBoard[availSpots[i]];
+
+                newBoard[availSpots[i]] = player;
+                if (player == secondPlayer) {
+                    var result = miniMax(newBoard, firstPlayer)
+                    move.score = result.score;
+                } else {
+                    var result = miniMax(newBoard, secondPlayer);
+                    move.score = result.score;
+                }
+                newBoard[availSpots[i]] = move.index;
+
+                moves.push(move);
+            }
+
+            var bestMove;
+            if (secondPlayer.turn) {
+                var bestScore = -10000;
+                for (var i =0; i < moves.length; i++) {
+                    if(moves[i].score > bestScore) {
+                        bestScore = moves[i].score;
+                        bestMove = i;
+                    }
+                }
+            } else {
+                var bestScore = 10000;
+                for(var i = 0; i < moves.length; i++) {
+                    if (moves[i].score > bestScore) {
+                        bestScore = moves[i].score;
+                        bestMove = i;
+                    }
+                }
+            } 
+        return moves[bestMove];
         }
         
     }
