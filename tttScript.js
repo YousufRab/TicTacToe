@@ -92,7 +92,21 @@ const gameBoard = (function () {
         console.log(Math.floor(Math.random() * board.length));
     }
 
+    const emptyIndexies = () => {
+        let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
+        function checkEmptySqr(square) {
+            return square.innerHTML != "O" && square.innerHTML !="X";
+        }
+        console.log(boardSquares.filter(checkEmptySqr));
+        return boardSquares.filter(checkEmptySqr);
+        
+    }
+
     const compTurnHard = () => {
+        let origBoard = []
+        let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
+        
+
         
     }
 
@@ -245,7 +259,7 @@ const gameBoard = (function () {
         }
     }
 
-    return {sqrClicked, gameStartBtn, drawMessage, gameCounter};
+    return {sqrClicked, gameStartBtn, drawMessage, gameCounter, compTurnHard, emptyIndexies};
 })();
 
 
