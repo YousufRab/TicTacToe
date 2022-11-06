@@ -89,6 +89,10 @@ const gameBoard = (function () {
         (board[Math.floor(Math.random() * board.length)]).innerHTML = secondPlayer.sign;
     }
 
+    const renderBoardToArray = () => {
+        
+    }
+
     const emptyIndexies = () => {
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
         function checkEmptySqr(square) {
@@ -130,80 +134,83 @@ const gameBoard = (function () {
                     break;
             }
         }
-        console.log(emptySquareIndexies);
         return emptySquareIndexies;
+    }
+
+    function winning(boardSquares, playerSign) {
+        if (
+            (boardSquares[0].innerHTML == playerSign && boardSquares[1].innerHTML == playerSign && boardSquares[2].innerHTML == playerSign) ||
+            (boardSquares[3].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[5].innerHTML == playerSign) ||
+            (boardSquares[6].innerHTML == playerSign && boardSquares[7].innerHTML == playerSign && boardSquares[8].innerHTML == playerSign) ||
+            (boardSquares[0].innerHTML == playerSign && boardSquares[3].innerHTML == playerSign && boardSquares[6].innerHTML == playerSign) ||
+            (boardSquares[1].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[7].innerHTML == playerSign) ||
+            (boardSquares[2].innerHTML == playerSign && boardSquares[5].innerHTML == playerSign && boardSquares[8].innerHTML == playerSign) ||
+            (boardSquares[0].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[8].innerHTML == playerSign) ||
+            (boardSquares[2].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[6].innerHTML == playerSign)
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+    }
+
+    function miniMax(newBoard, player) {
+        newBoard = Array.from(document.querySelectorAll('.boardSqr'));
+        var availSpots = emptyIndexies();
+
+        if (winning(newBoard, firstPlayer.sign)) {
+            return {score: -10};
+        } else if (winning(newBoard, secondPlayer.sign)) {
+            return {score: 10};
+        } else if (availSpots.length == 0) {
+            return {score: 0};
+        }
+
+        var moves = [];
+        for (var i = 0; i < availSpots.length; i++) {
+            var move = {};
+            move.index = newBoard[availSpots[i]];
+
+            newBoard[availSpots[i]] = player;
+            if (player == secondPlayer) {
+                var result = miniMax(newBoard, firstPlayer)
+                move.score = result.score;
+            } else {
+                var result = miniMax(newBoard, secondPlayer);
+                move.score = result.score;
+            }
+            newBoard[availSpots[i]] = move.index;
+
+            moves.push(move);
+        }
+
+        var bestMove;
+        if (player == secondPlayer) {
+            var bestScore = -10000;
+            for (var i =0; i < moves.length; i++) {
+                if(moves[i].score > bestScore) {
+                    bestScore = moves[i].score;
+                    bestMove = i;
+                }
+            }
+        } else {
+            var bestScore = 10000;
+            for(var i = 0; i < moves.length; i++) {
+                if (moves[i].score < bestScore) {
+                    bestScore = moves[i].score;
+                    bestMove = i;
+                }
+            }
+        } 
+    console.log(moves[bestMove]);
+    return moves[bestMove];
     }
 
     const compTurnHard = () => {
         let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
 
-        function winning(boardSquares, playerSign) {
-            if (
-                (boardSquares[0].innerHTML == playerSign && boardSquares[1].innerHTML == playerSign && boardSquares[2].innerHTML == playerSign) ||
-                (boardSquares[3].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[5].innerHTML == playerSign) ||
-                (boardSquares[6].innerHTML == playerSign && boardSquares[7].innerHTML == playerSign && boardSquares[8].innerHTML == playerSign) ||
-                (boardSquares[0].innerHTML == playerSign && boardSquares[3].innerHTML == playerSign && boardSquares[6].innerHTML == playerSign) ||
-                (boardSquares[1].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[7].innerHTML == playerSign) ||
-                (boardSquares[2].innerHTML == playerSign && boardSquares[5].innerHTML == playerSign && boardSquares[8].innerHTML == playerSign) ||
-                (boardSquares[0].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[8].innerHTML == playerSign) ||
-                (boardSquares[2].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[6].innerHTML == playerSign)
-                ) {
-                    return true;
-                } else {
-                    return false;
-                }
-        }
 
-        function miniMax(newBoard, player) {
-            var availSpots = emptyIndexies(newBoard);
 
-            if (winning(newBoard, firstPlayer.sign)) {
-                return {score: -10};
-            } else if (winning(newBoard, secondPlayer.sign)) {
-                return {score: 10};
-            } else if (availSpots.length == 0) {
-                return {score: 0};
-            }
-
-            var moves = [];
-            for (var i = 0; i < availSpots.length; i++) {
-                var move = {};
-                move.index = newBoard[availSpots[i]];
-
-                newBoard[availSpots[i]] = player;
-                if (player == secondPlayer) {
-                    var result = miniMax(newBoard, firstPlayer)
-                    move.score = result.score;
-                } else {
-                    var result = miniMax(newBoard, secondPlayer);
-                    move.score = result.score;
-                }
-                newBoard[availSpots[i]] = move.index;
-
-                moves.push(move);
-            }
-
-            var bestMove;
-            if (secondPlayer.turn) {
-                var bestScore = -10000;
-                for (var i =0; i < moves.length; i++) {
-                    if(moves[i].score > bestScore) {
-                        bestScore = moves[i].score;
-                        bestMove = i;
-                    }
-                }
-            } else {
-                var bestScore = 10000;
-                for(var i = 0; i < moves.length; i++) {
-                    if (moves[i].score > bestScore) {
-                        bestScore = moves[i].score;
-                        bestMove = i;
-                    }
-                }
-            } 
-        return moves[bestMove];
-        }
-        
     }
 
     const gameStartBtn = () => {
@@ -355,7 +362,7 @@ const gameBoard = (function () {
         }
     }
 
-    return {sqrClicked, gameStartBtn, drawMessage, gameCounter, compTurnHard, emptyIndexies};
+    return {sqrClicked, gameStartBtn, drawMessage, gameCounter, compTurnHard, miniMax};
 })();
 
 
