@@ -60,9 +60,9 @@ header {
     border: 1px solid black;
     display: block;
     text-align: center;
-    padding: 25% 0;
     font-size: 40px;
     background-color: #E27D60;
+    vertical-align: middle;
 }
 
 .board > div:nth-child(1) {
