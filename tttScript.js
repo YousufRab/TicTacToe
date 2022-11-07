@@ -72,6 +72,9 @@ const gameBoard = (function () {
                         
                     } 
                 }
+                if ((gameCounter < 9 && !firstPlayer.win && !secondPlayer.win && secondPlayer.AI && secondPlayer.difficulty != 'easy')) {
+
+                }
             })
         })
     }
@@ -90,7 +93,18 @@ const gameBoard = (function () {
     }
 
     const renderBoardToArray = () => {
-        
+        let boardSquares = Array.from(document.querySelectorAll('.boardSqr'));
+        boardArray = [];
+        boardSquares.forEach((square) => {
+            if (square.innerHTML == "") {
+                boardArray.push(boardSquares.indexOf(square));
+            } else if (square.innerHTML == "X") {
+                boardArray.push("X");
+            } else {
+                boardArray.push("O");
+            }
+        })
+        return boardArray;
     }
 
     const emptyIndexies = () => {
@@ -139,14 +153,14 @@ const gameBoard = (function () {
 
     function winning(boardSquares, playerSign) {
         if (
-            (boardSquares[0].innerHTML == playerSign && boardSquares[1].innerHTML == playerSign && boardSquares[2].innerHTML == playerSign) ||
-            (boardSquares[3].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[5].innerHTML == playerSign) ||
-            (boardSquares[6].innerHTML == playerSign && boardSquares[7].innerHTML == playerSign && boardSquares[8].innerHTML == playerSign) ||
-            (boardSquares[0].innerHTML == playerSign && boardSquares[3].innerHTML == playerSign && boardSquares[6].innerHTML == playerSign) ||
-            (boardSquares[1].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[7].innerHTML == playerSign) ||
-            (boardSquares[2].innerHTML == playerSign && boardSquares[5].innerHTML == playerSign && boardSquares[8].innerHTML == playerSign) ||
-            (boardSquares[0].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[8].innerHTML == playerSign) ||
-            (boardSquares[2].innerHTML == playerSign && boardSquares[4].innerHTML == playerSign && boardSquares[6].innerHTML == playerSign)
+            (boardSquares[0] == playerSign && boardSquares[1] == playerSign && boardSquares[2] == playerSign) ||
+            (boardSquares[3] == playerSign && boardSquares[4] == playerSign && boardSquares[5] == playerSign) ||
+            (boardSquares[6] == playerSign && boardSquares[7] == playerSign && boardSquares[8] == playerSign) ||
+            (boardSquares[0] == playerSign && boardSquares[3] == playerSign && boardSquares[6] == playerSign) ||
+            (boardSquares[1] == playerSign && boardSquares[4] == playerSign && boardSquares[7] == playerSign) ||
+            (boardSquares[2] == playerSign && boardSquares[5] == playerSign && boardSquares[8] == playerSign) ||
+            (boardSquares[0] == playerSign && boardSquares[4] == playerSign && boardSquares[8] == playerSign) ||
+            (boardSquares[2] == playerSign && boardSquares[4] == playerSign && boardSquares[6] == playerSign)
             ) {
                 return true;
             } else {
@@ -154,8 +168,7 @@ const gameBoard = (function () {
             }
     }
 
-    function miniMax(newBoard, player) {
-        newBoard = Array.from(document.querySelectorAll('.boardSqr'));
+    function miniMax(newBoard = renderBoardToArray(), player) {
         var availSpots = emptyIndexies();
 
         if (winning(newBoard, firstPlayer.sign)) {
@@ -172,11 +185,11 @@ const gameBoard = (function () {
             move.index = newBoard[availSpots[i]];
 
             newBoard[availSpots[i]] = player;
-            if (player == secondPlayer) {
-                var result = miniMax(newBoard, firstPlayer)
+            if (player == secondPlayer.sign) {
+                var result = miniMax(newBoard, firstPlayer.sign)
                 move.score = result.score;
             } else {
-                var result = miniMax(newBoard, secondPlayer);
+                var result = miniMax(newBoard, secondPlayer.sign);
                 move.score = result.score;
             }
             newBoard[availSpots[i]] = move.index;
@@ -185,7 +198,7 @@ const gameBoard = (function () {
         }
 
         var bestMove;
-        if (player == secondPlayer) {
+        if (player == secondPlayer.sign) {
             var bestScore = -10000;
             for (var i =0; i < moves.length; i++) {
                 if(moves[i].score > bestScore) {
@@ -362,7 +375,7 @@ const gameBoard = (function () {
         }
     }
 
-    return {sqrClicked, gameStartBtn, drawMessage, gameCounter, compTurnHard, miniMax};
+    return {sqrClicked, gameStartBtn, drawMessage, gameCounter, miniMax};
 })();
 
 
@@ -464,7 +477,6 @@ const gamePlay = (function () {
             }
             
         }
-        gameBoard.gameCounter = 0;
         clearBoard();
         hideWinMessage();
         hideDrawMessage();
