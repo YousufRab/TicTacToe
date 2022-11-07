@@ -393,6 +393,10 @@ const gamePlay = (function () {
         gameBoard.gameCounter = 0;
     }
 
+    const playVsCompHard = () => {
+        
+    }
+
     const playVsComp = () => {
         const signSelector = document.querySelector('.signSelectVsComp');
         const signX = document.getElementById('XComp');
