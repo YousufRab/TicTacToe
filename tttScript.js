@@ -394,7 +394,94 @@ const gamePlay = (function () {
     }
 
     const playVsCompHard = () => {
-        
+        const signSelector = document.querySelector('.signSelectVsComp');
+        const signX = document.getElementById('XComp');
+        const signO = document.getElementById('OComp');
+
+        const hideSelector = () => {
+            const signSelector = document.querySelector('.signSelect');
+            if (signSelector.classList.contains('signSelect-active')) {
+                signSelector.classList.remove("signSelect-active");
+                signSelector.classList.add("signSelect-transition");
+                signSelector.classList.add('signSelect-hidden');
+            } 
+        }
+        const hideSelectorVsComp = () => {
+            if (signSelector.classList.contains('signSelectVsComp-active')) {
+                signSelector.classList.remove("signSelectVsComp-active");
+                signSelector.classList.add("signSelectVsComp-transition");
+                signSelector.classList.add('signSelectVsComp-hidden');
+            } 
+        }   
+        const openSelectorVsComp = () => {
+            const signSelectorVsComp = document.querySelector('.signSelectVsComp');
+            if (signSelectorVsComp.classList.contains("signSelectVsComp-active")) {
+            //hide
+            signSelectorVsComp.classList.remove("signSelectVsComp-active");
+            signSelectorVsComp.classList.add("signSelectVsComp-transition");
+            signSelectorVsComp.classList.add('signSelectVsComp-hidden');
+        } else {
+            //show
+            signSelectorVsComp.classList.add('signSelectVsComp-visible');
+            signSelectorVsComp.clientWidth;
+            signSelectorVsComp.classList.add('signSelectVsComp-transition');
+            signSelectorVsComp.classList.add('signSelectVsComp-active');
+        }
+            signSelectorVsComp.addEventListener('transitionend', function () {
+            signSelectorVsComp.classList.remove('signSelectVsComp-transition');
+            signSelectorVsComp.classList.remove('signSelectVsComp-visible');
+            signSelectorVsComp.classList.remove('signSelectVsComp-hidden');
+    })} 
+
+        const chooseSignXVsComp = () => {
+            player1Sign = "X";
+            player2Sign = "O";
+            const playerOneName = document.getElementById('playerOneNameVsComp').value;
+            if (playerOneName == "") {
+                alert("Please enter player names");
+                signX.addEventListener('click', chooseSignXVsComp, {once: true});
+                return;            
+            }
+            hideSelectorVsComp();
+            createAiPlayerHard();
+            displayPlayerDetails();
+            signO.removeEventListener('click', chooseSignOVsComp, {once:true});
+        }
+
+        const chooseSignOVsComp = () => {
+            player1Sign = "O";
+            player2Sign = "X";
+            const playerOneName = document.getElementById('playerOneNameVsComp').value;
+            if (playerOneName == "") {
+                alert("Please enter player names");
+                signO.addEventListener('click', chooseSignOVsComp, {once: true});
+                return;            
+            }
+            hideSelectorVsComp();
+            createAiPlayerHard();
+            displayPlayerDetails();
+            signX.removeEventListener('click', chooseSignXVsComp, {once:true});
+        }
+
+        const createAiPlayerHard = () => {
+            let playerOneName = document.getElementById('playerOneNameVsComp').value;
+            if (player1Sign == "X") {
+                firstPlayer = player(playerOneName, 'X', true, false, false);
+                secondPlayer = player('SKYNET AI', 'O', false, false, true, 'hard');
+            } else { 
+                firstPlayer = player(playerOneName, 'O', true, false, false);
+                secondPlayer = player('SKYNET AI', 'X', false, false, true, 'hard');
+            }
+            
+        }
+        clearBoard();
+        hideWinMessage();
+        hideDrawMessage();
+        hideSelector();
+        signX.addEventListener('click', chooseSignXVsComp, {once: true});
+        signO.addEventListener('click', chooseSignOVsComp, {once:true});  
+        openSelectorVsComp();
+        gameBoard.gameCounter = 0;
     }
 
     const playVsComp = () => {
@@ -603,7 +690,7 @@ const gamePlay = (function () {
         (document.getElementById('playerTwoDisplaySign')).innerHTML = secondPlayer.sign;
     }
 
-    return {newGame, playVsComp};
+    return {newGame, playVsComp, playVsCompHard};
 })();
 
 // Player object (factory function)
